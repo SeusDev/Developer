@@ -1,0 +1,185 @@
+Solicitud ingreso
+
+<style>
+    .container-main {
+        padding: 0 15px;
+        background-color: #eff2fd;
+    }
+
+    @media (max-width: 1000px) {
+        .container-card {
+            width: 100%;
+            margin: 0px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .tab-content>div>div,
+    .card-container {
+        background-color: #eff2fd;
+    }
+
+    #AllContent>div>div>div>div.card-subcontent>div.card-icon>img {
+        width: 50px;
+    }
+
+    .card-container {
+        padding: 0;
+    }
+
+    .container-card {
+        max-width: 800px;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        margin: -226px 0 236px 0;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    .title-card {
+        padding: 20px 20px;
+        font-size: 20px;
+        color: #434a5e;
+        font-weight: bold;
+        font-family: Verdana;
+    }
+
+    .title-container-card {
+        border-bottom: 2px solid #f3f3f3;
+        text-align: center;
+    }
+
+    .card-subcontent {
+        padding: 20px 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .card-description {
+        padding: 0 22px;
+        text-align: center;
+    }
+
+    .description {
+        margin: -8px 0 10px;
+        font-family: Verdana;
+    }
+
+    .Imagen {
+        width: 100%;
+        height: 28rem;
+        background-color: #00C83C;
+    }
+
+    .btn-ingresar {
+        border: none;
+        background-color: white;
+        color: #00d146;
+        font-size: 16px;
+    }
+</style>
+<div class="container-main">
+    <div class="container-card">
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Solicitud de ingreso sin reserva de puesto
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Reservadepuesto.png" alt="Sin Imagen">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ipsam ratione excepturi, officiis
+                        voluptate dolorum quam praesentium sed blanditiis rerum, amet distinctio quia, vero est totam.
+                        Labore consectetur atque qui.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Selecciona la fecha de solicitud
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <div id="eb42b06f-8f3b-4ce3-a27c-831fde791f04"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                 Seleccione la hora de llegada (a la oficina)
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <!-- <div id="time" style="width: 100%;"></div> -->
+                        <div style="width: 100%;">
+                            <input id="start" value="7:00 AM" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row"
+        style="max-width: 800px;margin-top: -152px;display: flex;flex-wrap: wrap;justify-content: flex-end;">
+
+        <button class="MenuOptns" type="button" id="Save">
+            <span class="Texto"> Enviar </span>
+        </button>
+
+        <button class="MenuOptns" type="button" id="Back" style="background-color: #707070 !important;">
+            <span class="Texto" id="Regresar"> Regresar </span>
+        </button>
+
+
+    </div>
+</div>
+
+<script>
+
+    $('#SectionsFields').css("padding-left", "0px")
+    $('#SectionsFields').css("padding-right", "0px")
+    $('#SectionsFields > div').css("padding-left", "0px")
+    $('#SectionsFields > div').css("padding-right", "0px")
+    $('.container-main').css("padding", "0px")
+
+    $("#time").dxDateBox({
+        type: "time",
+        displayFormat: "HH:mm"
+    });
+    var start = $("#start").kendoTimePicker({}).data("kendoTimePicker");
+    start.min("7:00 AM");
+    start.max("5:30 PM");
+    
+    $("#eb42b06f-8f3b-4ce3-a27c-831fde791f04").dxDateBox({
+        value: new Date(),
+        width: "100%",
+        min: new Date(),
+        displayFormat: 'dd/MM/yyyy',
+    })
+
+</script>

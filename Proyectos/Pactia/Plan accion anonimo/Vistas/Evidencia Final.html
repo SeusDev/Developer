@@ -1,0 +1,77 @@
+<style>
+    label[for="CargarNovedades1"] {
+      background-color: rgb(2, 19, 36);
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+  
+    label[for="CargarNovedades1"]:hover {
+      background-color: #0077b6;
+    }
+  </style>
+  <div class="container-general1">
+    <div class="row">
+      <input type="file" id="CargarSoporte1" class="download-products" accept=".jpg,jpeg,.png,.pdf" style="display: none;"/>
+      <label for="CargarNovedades1" id="fileUP1" class="active mdl-button mdl-button--acciones mdl-button--primary labelCargar">
+        <span><i class="fa fa-upload" style="color: white"></i> Evidencia final</span>
+      </label>
+    </div>
+    <div class="row">
+      <div id="Grid1"></div>
+    </div>
+  </div>
+  
+  <script>
+  setTimeout(()=>{
+      let getBase641 = (file) =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
+      });
+    if (window.File && window.FileReader && window.FileList && window.Blob) {
+      document.getElementById("CargarSoporte1").addEventListener("change", handleFileSelect1, false);
+    } else {
+      toastr.success("Problema al acargar librería");
+    }
+      document.getElementById('fileUP1').addEventListener('click',()=>{
+          $('#CargarSoporte1').click();
+      })
+      if(!kendo.jQuery('#Grid1').data('kendoGrid'))
+        window.createGrid('#Grid1', [])
+  },1000)
+    function handleFileSelect1(evt) {
+        debugger;
+      var f = evt.target.files[0]; // FileList object
+      var reader = new FileReader();
+      // Closure to capture the file information.
+      reader.onload = (function (theFile) {
+        return function (e) {
+          var binaryData = e.target.result;
+          //Converting Binary Data to base 64
+          var base64String = window.btoa(binaryData);
+          //showing file converted to base64
+          let sFilename = f.name;
+          let encoding = "7bit";
+          let mimeType = f.type;
+          let size = f.size;
+          let letdata = {
+          Name:sFilename,
+          Type:mimeType,
+          Size:size,
+          Buffer:base64String, 
+          }
+          kendo.jQuery("#Grid1").data("kendoGrid").dataSource.add(letdata)
+        };
+      })(f);
+      // Read in the image file as a data URL.
+      reader.readAsBinaryString(f);
+
+    }
+
+  </script>

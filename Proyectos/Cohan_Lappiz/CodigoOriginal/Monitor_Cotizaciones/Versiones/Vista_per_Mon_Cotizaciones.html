@@ -1,0 +1,315 @@
+<body>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/messages/kendo.messages.es-ES.min.js"></script>
+    <style>
+        /* Header */
+        .modalTitle {
+            font-size: 24px;
+            width: 80%;
+            padding-left: 8px;
+        }
+
+        .k-multiselect-wrap {
+            border-width: 1px !important;
+        }
+
+        .footer {
+            border-top: 1px solid #eeeeee;
+            height: 30px;
+        }
+
+        .modalCloseButton {
+            width: 20%;
+            text-align: end;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .modalBodyTitle {
+            text-align: center;
+            font-size: 24px;
+            background-color: #0072bf;
+            color: #ffffff;
+        }
+
+        .containerFooter {
+            align-items: baseline;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        .footerInput {
+            width: 45%;
+        }
+
+        .modal-footer {
+            text-align: end;
+        }
+
+        .modal-Container {
+            width: 70%;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            margin: auto;
+        }
+
+        #ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(1)>span {
+            width: 100%;
+        }
+
+        #ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(2)>span {
+            width: 100%;
+        }
+
+        .user-select {
+            width: 45%;
+        }
+
+        .button-container {
+            text-align: end;
+            padding-top: 10px;
+        }
+
+        label {
+            padding: 12px 0 2px 0;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .btn-reasignar {
+            width: 120px;
+            margin: 0px;
+        }
+
+        .input-container {
+            height: unset !important;
+            margin-right: 2px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .modal-Container {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (max-width: 535px) {
+            .modal-Container {
+                width: 99%;
+            }
+        }
+
+        @media only screen and (max-width: 425px) {
+            #ModalInfor {
+                width: "100%";
+                text-align: center;
+            }
+
+            .modal-Container {
+                display: inline-block;
+                padding-bottom: 0px;
+            }
+
+            label {
+                padding: 0px;
+            }
+
+            .user-select {
+                width: 100%;
+            }
+
+            .button-container {
+                text-align: end;
+                width: 100%;
+                padding-top: 15px;
+            }
+
+            .btn-reasignar {
+                padding: 3px 25px;
+                width: initial;
+            }
+        }
+        .containerInput {
+            width: 80%;
+            margin: auto;
+        }
+        .rowInputal {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media only screen and (max-width: 500px) {
+            .rowInputal {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .containerFooter {
+                display: block;
+            }
+
+            .footerInput {
+                width: "100%";
+            }
+        }
+        .divduo {
+            width: 45%;
+
+        }
+        .dropDown {
+            width: 100%;
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+        .footer {
+            border-top: 1px solid #eeeeee;
+            height: 30px;
+        }
+    </style>
+    <br>
+    <div class="containerInput">
+        <div class="rowInputal">
+            <div class="divduo">
+                <div style="width: 100%"><label class="labelInput">Nombre cliente<span class="requiredClass" style="color: red;">*</span></label><br>
+                    <div id="cliente" class="dropDown"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="footer"></div>
+    <br>
+    <br>
+    <div>
+        <div id="gridMonitorCotizacion">
+        </div>
+    </div>
+     <!-- Modal info -->
+    <div class="modal fade" id="modalInfo" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+            <div class="modal-content" style="padding: 0px !important">
+                <div class="modal-header">
+                    <div class="modalTitle">
+                        Información
+                    </div>
+                    <div class="modalCloseButton">
+                        <button id="volverinfor" onclick="volverInfor()" class="closeButton">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" id="ModalInfor">
+                    <div class="modalBodyTitle">
+                        Información
+                    </div>
+                    <br>
+                    <div>
+                        <div id="informacion"></div>
+                    </div>
+                </div>
+                <div class="footer"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal reasignar -->
+    <div class="modal fade" id="modalReasignar" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+            <div class="modal-content" style="padding: 0px !important">
+                <div class="modal-header">
+                    <div class="modalTitle"> Reasignar Tarea</div>
+                    <div class="modalCloseButton">
+                        <button id="volverReasignar"  onclick="volverReasignar()" class="closeButton">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" id="ModalReasig">
+                    <div class="modalBodyTitle">
+                        Reasignar
+                    </div>
+                    <div class="modal-Container">
+                        <div class="dropdown-container">
+                            <div class="user-select">
+                                <label for="">Nombre de usuario asignado</label> <br>
+                                <input id="assigned-user" class="user-input" />
+                            </div>
+                            <div class="user-select">
+                                <label for="">Nombre de usuario a reasignar</label> <br>
+                                <input id="change-user" class="user-input" />
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-reasignar" id="guardarAsing">Reasignar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+    <!-- End modal reasignar -->
+
+    <!-- modal asignar -->
+    <div class="modal fade" id="modalasignar" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+            <div class="modal-content" style="padding: 0px !important">
+                <div class="modal-header">
+                    <div class="modalTitle"> asignar usuario</div>
+                    <div class="modalCloseButton">
+                        <button id="volverasignar"  onclick="volverasignar()" class="closeButton">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" id="ModalReasig">
+                    <div class="modalBodyTitle">
+                        asignar
+                    </div>
+                    <div class="modal-Container">
+                        <div class="dropdown-container">
+                                <div class="user-select">
+                                <label for="">Nombre de usuario a asignar</label> <br>
+                                <input id="usuario" class="user-input" />
+                            </div>  
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-asignar" id="Asignar">asignar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer"></div>
+        </div>
+    </div>
+   <!-- End modal asignar -->
+    <script>
+        function volverInfor() {
+            $("#modalInfo").modal('hide');
+        }
+        function volverReasignar() {
+            $("#modalInfo").modal('hide');
+        }
+        function volverasignar() {
+            $("#modalInfo").modal('hide');
+        }
+        function volverasignar() {
+            $("#modalasignar").modal('hide');
+        }
+    </script>
+</body>

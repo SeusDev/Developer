@@ -1,0 +1,232 @@
+<body>
+	<script src="https://kendo.cdn.telerik.com/2017.2.504/js/messages/kendo.messages.es-ES.min.js"></script>
+
+	<div id="conteoP"></div>
+	<br />
+	<style>
+		/* Header */
+		.modalTitle {
+			font-size: 24px;
+			width: 80%;
+			padding-left: 8px;
+		}
+
+		.footer {
+			border-top: 1px solid #eeeeee;
+			height: 30px;
+		}
+
+		.modalCloseButton {
+			width: 20%;
+			text-align: end;
+		}
+
+		.modal-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.titulo {
+			padding-bottom: 8px;
+		}
+
+		.btn-cont {
+			padding-top: 8px;
+			text-align: end;
+		}
+
+		.Container-btn {
+			text-align: end;
+		}
+
+		/* end header */
+		.modalBodyTitle {
+			text-align: center;
+			font-size: 24px;
+			background-color: #0072bf;
+			color: #ffffff;
+		}
+
+		/* ContainerFooter */
+		.containerFooter {
+			align-items: baseline;
+			justify-content: space-around;
+			display: flex;
+		}
+
+		.footerInput {
+			width: 45%;
+		}
+
+		.modal-footer {
+			text-align: end;
+		}
+
+		.rowInput {
+			display: inline-flex;
+			height: auto;
+			grid-gap: 400px;
+		}
+
+		.divduo {
+			width: 600px;
+			padding-left: 100px;
+		}
+
+		.divduo1 {
+			width: 600px;
+			padding-left: 100px;
+		}
+
+		input {
+			width: 70%;
+			height: 30px;
+		}
+
+		/* ContainerFooter end */
+
+		@media only screen and (max-width: 500px) {
+			.containerFooter {
+				display: block;
+			}
+
+			.footerInput {
+				width: "100%";
+			}
+		}
+
+		@media only screen and (max-width: 425px) {
+			#ModalUsu {
+				width: "100%";
+				text-align: center;
+			}
+		}
+
+		.labelS {
+			font-weight: bold;
+			font-size: medium;
+		}
+
+		.inputStyle {
+			width: 70%;
+			height: 30px;
+			margin: 5px;
+			border-radius: 1%;
+		}
+	</style>
+	<div class="container">
+		<div class="row">
+			<div class="col col-md-4">
+				<label
+					for="Consecutivo"
+					class="class"
+					="form-control ng-empty ng-valid ng-valid-minlength ng-valid-maxlength ng-valid-required ng-touched"
+					>Descripción</label
+				>
+				<br />
+				<input
+					ng-if="!field.format"
+					type="text"
+					name="field"
+					id="Consecutivo"
+					class="form-control ng-empty ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-touched"
+					ng-required="field.required"
+					ng-model="value.val"
+					ng-show="field.show"
+					ng-disabled="field.disabled || !field.IsEditable"
+					ng-class="inputClass"
+					ng-blur="actionFormula()"
+					ng-change="change()"
+					ng-maxlength="30"
+					ng-minlength="0"
+					placeholder="Identificación"
+					required="required"
+                    readonly 
+				/>
+				<br />
+				<label
+					for="TipoInventario"
+					class="class"
+					="form-control ng-empty ng-valid ng-valid-minlength ng-valid-maxlength ng-valid-required ng-touched"
+					>Tipo de Inventario</label
+				>
+				<br />
+				<input
+					ng-if="!field.format"
+					type="text"
+					name="field"
+					id="TipoInventario"
+					class="form-control ng-empty ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-touched"
+					ng-required="field.required"
+					ng-model="value.val"
+					ng-show="field.show"
+					ng-disabled="field.disabled || !field.IsEditable"
+					ng-class="inputClass"
+					ng-blur="actionFormula()"
+					ng-change="change()"
+					ng-maxlength="30"
+					ng-minlength="0"
+					placeholder="Identificación"
+					required="required"
+                    readonly
+				/>
+			</div>
+			<div class="col col-md-4">
+				<label
+					for="Clasificacion"
+					class="class"
+					="form-control ng-empty ng-valid ng-valid-minlength ng-valid-maxlength ng-valid-required ng-touched"
+					>Clasificación</label
+				>
+				<br />
+				<input
+					ng-if="!field.format"
+					type="text"
+					name="field"
+					id="Clasificacion"
+					class="form-control ng-empty ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-touched"
+					ng-required="field.required"
+					ng-model="value.val"
+					ng-show="field.show"
+					ng-disabled="field.disabled || !field.IsEditable"
+					ng-class="inputClass"
+					ng-blur="actionFormula()"
+					ng-change="change()"
+					ng-maxlength="30"
+					ng-minlength="0"
+					placeholder="Identificación"
+					required="required"
+                    readonly
+				/>
+				<br />
+				<label
+					for="Ubicacion"
+					class="class"
+					="form-control ng-empty ng-valid ng-valid-minlength ng-valid-maxlength ng-valid-required ng-touched"
+					>Ubicación</label
+				>
+				<br />
+				<input
+					ng-if="!field.format"
+					type="text"
+					name="field"
+					id="Ubicacion"
+					class="form-control ng-empty ng-invalid ng-invalid-required ng-valid-minlength ng-valid-maxlength ng-touched"
+					ng-required="field.required"
+					ng-model="value.val"
+					ng-show="field.show"
+					ng-disabled="field.disabled || !field.IsEditable"
+					ng-class="inputClass"
+					ng-blur="actionFormula()"
+					ng-change="change()"
+					ng-maxlength="30"
+					ng-minlength="0"
+					placeholder="Identificación"
+					required="required"
+                    readonly
+				/>
+			</div>
+		</div>
+	</div>
+</body>

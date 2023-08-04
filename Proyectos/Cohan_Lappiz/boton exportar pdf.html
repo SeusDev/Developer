@@ -1,0 +1,18 @@
+<div id="grid"></div>
+<script id="template" type="text/x-kendo-template">
+	<a class="k-button" href="\#" onclick="return toolbar_click()">Command</a>
+</script>
+<script>
+	function toolbar_click() {
+	       var fechaInicial = $('#dateFechaInicial').val()
+	       var fechaFinal = $('#dateFechaFinal').val()
+	       window.open(`https://bi.lappiz.io/ReportServer/Pages/ReportViewer.aspx?%2fReport+Parts%2fCohan_Lappiz%2fCohan_Lappiz_Acta_Recepcion_SF&rs:Command=Render&fechaInicial=${fechaInicial}&fechaFinal=${fechaFinal}&rs:embed=false`)
+	  }
+	     ​​
+	$("#grid").kendoGrid({​​
+	  toolbar: [{​​ template: kendo.template($("#template").html()) }​​],
+	  columns: [{​​ field: "name" }​​,{​​ field: "age" }​​],
+	  dataSource: [{​​ name: "Jane Doe", age: 30 }​​,{​​ name: "John Doe", age: 33 }​​]}​​);
+</script>
+
+

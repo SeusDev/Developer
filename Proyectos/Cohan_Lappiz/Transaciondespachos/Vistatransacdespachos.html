@@ -1,0 +1,366 @@
+<!-- original -->
+<body>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/messages/kendo.messages.es-ES.min.js"></script>
+    <style>
+        /* Main form container */
+        .form-inline {}
+
+        .main-form-container {
+            padding: 20px 0 20px 0;
+            border: 1px solid #000000;
+        }
+
+        .inputs-container {
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+        }
+
+        .action-buttons {
+            text-align: end;
+        }
+
+        .Container-btn {
+            text-align: end;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .Container-btn {
+                display: flex;
+                align-items: center;
+                margin-top: 6px;
+            }
+
+            .totalContent {
+                width: auto;
+            }
+
+            .totalInput {
+                width: 165px;
+                padding: 0px;
+                margin: 0 5px 0 0;
+            }
+
+            .buttonContent {
+                padding-top: 24px;
+                width: 100%;
+            }
+        }
+
+        .divduo {
+            width: 45%;
+        }
+
+        .labelInput {
+            padding: 12px 0 2px 0;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        span.k-widget.k-dropdown.k-header.input.input-basic {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .input {
+            width: 98%;
+        }
+
+        /* end main-form-container*/
+        /* modal */
+        .modalTitle {
+            font-size: 24px;
+            width: 50%;
+            padding-left: 8px;
+        }
+
+        .modalCloseButton {
+            width: 50%;
+            text-align: end;
+        }
+
+        .modal-dialog {
+            width: 95% !important;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .btn-cont {
+            padding-top: 8px;
+            text-align: end;
+        }
+
+        .containerInput {
+            width: 100%;
+            margin: auto;
+        }
+
+        /* end modal */
+        body {
+            font-family: Arial;
+        }
+
+        .div2 {
+            width: auto;
+            height: 40px;
+            overflow: hidden;
+            border: 0px solid #ccc;
+            border-radius: 0px 0px 0px 0px;
+            color: white;
+        }
+
+        input {
+            margin: 12px;
+            padding: 10px;
+        }
+
+
+        .totalInput {
+            width: 80px;
+            padding: 0px;
+        }
+
+        /* HEADER */
+
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .btn-cont {
+            padding-top: 8px;
+            text-align: end;
+        }
+
+        /* end-header */
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .conteinColumns {
+            display: flex;
+            padding: 10px 0 10px 0;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+        }
+
+        .btn-cont {
+            padding-top: 0px;
+            text-align: center;
+            align-items: center
+        }
+
+        /* New style */
+        #AllContent>div.main-tittle.ng-scope>h1 {
+            color: #ffffff !important;
+        }
+
+        .main-tittle {
+            background-color: lightslategrey;
+            text-align: center;
+            /* color: #fff; */
+            padding: 10px 0 10px 0;
+        }
+
+        .dropDown {
+            width: 100%;
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+
+        .cards-container {
+            width: 100%;
+        }
+
+        .add-btn-container {
+            text-align: end;
+            width: 100%;
+        }
+
+        .card-header {
+            padding: 0;
+            border-width: 0 0 1px;
+            overflow: unset;
+            position: relative;
+            z-index: 1;
+            font-family: Roboto, sans-serif;
+        }
+
+        a.accordion-toggle {
+            color: white;
+        }
+
+        .totalContent {
+            padding-bottom: 4px;
+        }
+
+        .totalInput {
+            width: 99%;
+        }
+
+        .total {
+            padding: 5px 12px;
+            text-align: end;
+        }
+    </style>
+    <div class="form-inline">
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Tipo<span class="requiredClass"
+                            style="color: red;">*</span></label><br>
+                    <select name="select" type="text" class="input input-basic" id="tipo">
+                        <option value="0">Seleccione una opción</option>
+                        <option value="1">Cliente</option>
+                        <option value="2">Proveedor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Tipo transacción<span class="requiredClass"
+                            style="color: red;">*</span></label><br>
+                    <input type="text" class="dropDown" id="tipotransa">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Identificación<span class="requiredClass"
+                            style="color: red;">*</span></label><br>
+                    <input type="text" class="dropDown" id="identifi">
+                </div>
+            </div>
+
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">NIT<span class="requiredClass" style="color: red;">*</span></label><br>
+                    <input type="text" class="dropDown" id="nit">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div style="padding: 10px 0px;text-align: center;background-color: #0072bf;">
+            <h3 style="margin: 0px;color: #ffffff;">Información</h3>
+        </div>
+        <br>
+        <!-- info section cliente y proveedor -->
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Nombre cliente</label><br>
+                    <input type="text" class="input input-basic" id="nomcli" readonly>
+                </div>
+            </div>
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Nombre detalle cliente</label><br>
+                    <input type="text" class="input input-basic" id="detallecli" readonly>
+                </div>
+            </div>
+
+        </div>
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Nombre proveedor</label><br>
+                    <input type="text" class="input input-basic" id="nompro" readonly>
+                </div>
+            </div>
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Nombre detalle proveedor</label><br>
+                    <input type="text" class="input input-basic" id="nomdetalle" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Prioridad</label><br>
+                    <select name="select" type="text" class="input input-basic" id="prioridad">
+                        <option value="0">Normal</option>
+                        <option value="1">Urgente</option>
+                    </select>
+                </div>
+            </div>
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Motivo devolución<span class="requiredClass"
+                            style="color: red;">*</span></label><br>
+                    <select name="select" type="text" class="input input-basic" id="motidevo">
+                        <option value="0">Seleccione una opción</option>
+                        <option value="1">Vencimiento</option>
+                        <option value="2">Baja rotación</option>
+                        <option value="3">Registro Invima</option>
+                        <option value="4">Calidad</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Observación</label><br>
+                    <input type="text" class="input input-basic" id="observacion" readonly>
+                </div>
+            </div>
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Número factura<span class="requiredClass"
+                            style="color: red;">*</span></label><br>
+                    <input type="text" class="dropDown" id="ordencompra">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div style="padding: 10px 0px;text-align: center;background-color: #0072bf;">
+            <h3 style="margin: 0px;color: #ffffff;">Productos</h3>
+        </div>
+        <!-- productos -->
+        <div class="inputs-container">
+            <div class="divduo">
+                <div style="width: 100%">
+                    <label class="labelInput">Nombre producto </label>
+                    <input type="text" placeholder="Nombre producto" id="NombreProducto" class="input input-basic">
+                </div>
+                <div style="width: 100%">
+                    <label class="labelInput">Código producto</label>
+                    <input type="text" placeholder="Código producto" id="CodigoProducto" class="input input-basic">
+                </div>
+            </div>
+            <br>
+            <div class="Container-btn">
+                <button id="buscar"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
+            </div>
+            <br>
+        </div>
+        <br>
+        <div class="footer"></div>
+        <br>
+        <br>
+
+        <!-- grid -->
+
+        <div id="container-grid">
+            <div id="gridProductos">
+            </div>
+        </div>
+
+    </div>
+
+</body>

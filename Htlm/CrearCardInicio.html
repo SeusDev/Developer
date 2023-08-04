@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+    
+        * {
+            box-sizing: border-box;
+        }
+    
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Open Sans';
+            background: #fafafa;
+        }
+    
+        a {
+            color: inherit;
+        }
+    
+        .cards-wrapper {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 4rem;
+            padding: 4rem;
+            margin: 0 auto;
+            width: max-content;
+            margin-top: -6%;
+        }
+    
+        .card1 {
+            font-family: 'Heebo';
+            --bg-filter-opacity: 0.5;
+            background-image: linear-gradient(rgba(0, 0, 0, var(--bg-filter-opacity)), rgba(0, 0, 0, var(--bg-filter-opacity))), var(--bg-img);
+            height: 20em;
+            width: 15em;
+            font-size: 1.5em;
+            color: white;
+            border-radius: 1em;
+            padding: 1em;
+            /*margin: 2em;*/
+            display: flex;
+            align-items: flex-end;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 5em -1em rgb(255, 255, 255);
+            transition: all, var(--transition-time);
+            position: relative;
+            overflow: hidden;
+            border: 10px solid #ccc;
+            text-decoration: none;
+        }
+    
+        .card1:hover {
+            transform: rotate(0);
+            color: #ccc !important;
+        }
+    
+        .card1 h1 {
+            margin: 0;
+            font-size: 1.6em;
+            line-height: 1.2em;
+        }
+
+        .card1 h1:hover{
+            color: #ccc;
+        }
+    
+        .card1 p {
+            font-size: 0.75em;
+            font-family: 'Open Sans';
+            margin-top: 0.5em;
+            line-height: 2em;
+        }
+    
+        .card1 .tags {
+            display: flex;
+        }
+    
+        .card1 .tags .tag {
+            font-size: 0.75em;
+            background: #b3273e;
+            color: white;
+            border-radius: 0.3rem;
+            padding: 0 0.5em;
+            margin-right: 0.5em;
+            line-height: 1.5em;
+            transition: all, var(--transition-time);
+        }
+    
+        .card1:hover .tags .tag {
+            background: #ccc;
+            color: black;
+        }
+    
+        .card1 .date {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 0.75em;
+            padding: 1em;
+            line-height: 1em;
+            opacity: .8;
+        }
+    
+        .card1:before,
+        .card1:after {
+            content: '';
+            transform: scale(0);
+            transform-origin: top left;
+            border-radius: 50%;
+            position: absolute;
+            left: -50%;
+            top: -50%;
+            z-index: -5;
+            transition: all, var(--transition-time);
+            transition-timing-function: ease-in-out;
+        }
+    
+        .card1:before {
+            background: transparent;
+            width: 250%;
+            height: 250%;
+        }
+    
+        .card1:after {
+            background: transparent;
+            width: 200%;
+            height: 200%;
+        }
+    
+        .card1:hover {
+            color: var(--color);
+        }
+    
+        .card1:hover:before,
+        .card1:hover:after {
+            transform: scale(1);
+        }
+    
+        .card-grid-space .num {
+            font-size: 3em;
+            margin-bottom: 1.2rem;
+            margin-left: 1rem;
+        }
+
+        .card .card-body {
+        padding: 18px;
+        margin-top: -3%;
+        }
+
+        .main-wrapper .page-wrapper .page-content {
+        flex-grow: 1;
+        padding: 25px;
+        margin-top: -3% !important;
+}
+    
+        .info {
+            font-size: 1.2em;
+            display: flex;
+            padding: 1em 3em;
+            height: 3em;
+        }
+    
+        .info img {
+            height: 3em;
+            margin-right: 0.5em;
+        }
+    
+        .info h1 {
+            font-size: 1em;
+            font-weight: normal;
+        }
+    
+        /* MEDIA QUERIES */
+        @media screen and (max-width: 1285px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    
+        @media screen and (max-width: 900px) {
+            .cards-wrapper {
+                grid-template-columns: 1fr;
+            }
+    
+            .info {
+                justify-content: center;
+            }
+    
+            .card-grid-space .num {
+                margin-left: 0;
+                text-align: center;
+            }
+        }
+    
+        @media screen and (max-width: 500px) {
+            .cards-wrapper {
+                padding: 4rem 2rem;
+            }
+    
+            .card1 {
+                max-width: calc(100vw - 4rem);
+            }
+        }
+    
+        @media screen and (max-width: 450px) {
+            .info {
+                display: block;
+                text-align: center;
+            }
+    
+            .info h1 {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="cards-wrapper">
+        <div class="card-grid-space">
+            <a class="card1" id="card1" style="--bg-img: url('https://i.postimg.cc/6p1v8S8s/Cafeteros1.jpg')">
+                <div>
+                    <h4>Diario de labores</h4>
+                    <p></p>
+                    <div class="tags">
+                        <div class="tag">Gestionar</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+            <a class="card1" id="card2" style="--bg-img: url('https://i.postimg.cc/xdJbMRmX/Cafeteros2.jpg')">
+                <div>
+                    <h4>Fincas o empresas</h4>
+                    <p></p>
+                    <div class="tags">
+                        <div class="tag">Ver o crear</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="card-grid-space">
+            <a class="card1" id="card3" style="--bg-img: url('https://i.postimg.cc/xdwNRzGt/Cafeteros3.jpg')">
+                <div>
+                    <h4>Inventario de insumos</h4>
+                    <p></p>
+                    <div class="tags">
+                        <div class="tag">Revisar inventario</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+</body>

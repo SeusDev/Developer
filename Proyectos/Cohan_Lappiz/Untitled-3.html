@@ -1,0 +1,128 @@
+
+
+<div class="modal fade" id="modalAsignar" data-keyboard="false" data-backdrop="static" role="dialog">
+    <div class="modal-dialog modal-dialog" style="overflow-x: initial;height: 90%;overflow-y: visible;">
+        <div class="modal-content" style="padding: 0px !important">
+            <div class="card-container">
+                <div role="dialog" aria-hidden="true">
+                    <div class="header-section">
+                        <div class="actions-form-header">
+                            <div style="display:inline-block" class="ng-scope">
+                                <ng-switch on="Action.Type">
+                                    <!-- ngSwitchWhen: Save -->
+                                    <!-- ngIf: showSave --><button id="guardar" class="btn-basic ng-scope"> <i
+                                            class="fa fa-plus-circle"></i>
+                                    </button>
+                                    <!-- ngIf: showSaveContinue --><button class="btn-basic ng-scope"
+                                        disabled="disabled"> <i class="fas fa-plus-square"></i> </button>
+                                    <!-- end ngIf: showSaveContinue -->
+                                    <!-- end ngSwitchWhen: -->
+                                    <!-- ngSwitchWhen: Save -->
+                                    <!-- ngIf: showSaveEdit --><button class="btn-basic ng-scope" disabled="disabled">
+                                        <i class="fa fa-clipboard"></i> </button>
+                                    <!-- end ngIf: showSaveEdit -->
+                                    <!-- end ngSwitchWhen: -->
+                                </ng-switch>
+                            </div> <!-- ngIf: showCancel --><button class="btn-basic ng-scope" id="volverinfor"
+                                title="Cancelar"> <i class="fa fa-undo"></i> </button><!-- end ngIf: showCancel -->
+                            <!-- ngIf: ShowHistory && !isNew -->
+                            <nav class="inner-nav-actions ng-hide" ng-show="actionsMenuOptions || taskId">
+                                <div class="container-fluid">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown"> <button ng-show="showActions" data-toggle="dropdown"
+                                                translate="moreActions_form" class="ng-scope">Más Acciones</button>
+                                            <ul class="dropdown-menu contextual-menu">
+                                                <!-- quickNgRepeat: Action in configInfo.Actions -->
+                                                <li class="sub_menu ng-scope">
+                                                </li> <!-- <li> -->
+                                                <li>
+                                                    <!-- ngIf: taskId -->
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div> <br><br>
+                        <div class="title-section">
+                            <h1 class="ng-binding">Inventario cicliclo por producto </h1>
+                            <h5 translate="description_form" class="ng-scope">Formulario</h5>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="ng-scope">
+                            <br>
+                            <div id="1._Cliente">
+                                <div class="form-section-title ng-binding">Datos básicos</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row ng-scope">
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"><label class="control-label ng-scope"><span
+                                                    class="ng-binding">Tipo de
+                                                    busqueda </span><span
+                                                    class="ft-appengine-field-required ng-scope">*</label>
+                                            <div class="ng-scope"> <select name="field" id="selectTipo"
+                                                    class="ng-not-empty ng-valid-required ng-touched">
+                                                    <option label="Codigo" value="codigo">Código producto</option>
+                                                    <option label="Nombre" value="nombre">Nombre producto</option>
+                                                </select>
+                                                <div class="input-group ng-hide"> <select id="selectTipo"
+                                                        class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+                                                        <option label="Codigo" value="codigo">Código producto</option>
+                                                        <option label="Nombre" value="nombre">Nombre producto</option>
+                                                    </select> <span class="input-group-btn"> <button type="button"
+                                                            class="btn btn-default" data-toggle="modal"> <i
+                                                                class="fa custom-icon ng-isolate-scope fa-table"
+                                                                icon-type="grid"></i>
+                                                        </button> </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"> <label class="control-label ng-scope">
+                                                <span class="ng-binding">Código de producto(s) </span><span
+                                                    class="ft-appengine-field-required ng-scope">*</span></label>
+                                            <br>
+                                            <input id="txtcodigo" class="form-control" placeholder="Código producto">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ng-scope">
+                                    <div id="SectionsFields" class="col-md-12 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"><label class="control-label ng-scope"><span
+                                                    class="ng-binding">Nombre cliente </span><span
+                                                    class="ft-appengine-field-required ng-scope">*</span></label>
+                                            <div class="ng-scope">
+                                                <div id="contain-dllCliente">
+                                                    <div id="dllCliente" class="dropDown">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="SectionsFields" class="col-md-12 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"><label class="control-label ng-scope"><span
+                                                    class="ng-binding">Usuario asignado </span></label>
+                                            <div class="ng-scope">
+                                                <div id="contain-ddl">
+                                                    <div id="ddlUsuario" class="dropDown">
+                                                    </div>
+                                                </div>
+                                                <span class="ng-binding">Seleccionar usuario solo si este estará
+                                                    asignado para todos los productos ingresados o seleccionados</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,499 @@
+//Descarga y carga
+
+<!--Descargar plantila-->
+
+<div>
+    <button id="downloadAfiliado" class="download-products">Descargar Plantilla Plantilla</button>
+
+</div>
+<!-- <div>
+        <button id="uploadloadP" class="upload-products">Descargar productos</button>
+    </div> -->
+<script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script lang="javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script>
+    document.getElementById("downloadAfiliado").addEventListener("click", descargarPlantilla);
+
+    function ajaxSP(nombreSp, parametros) {
+        var respuesta;
+
+        var Query = `exec ${nombreSp}`
+
+        if (parametros != null) {
+            for (let i = 0; i < parametros.length; i++) {
+                if (i < 1) {
+                    Query = `${Query} '${parametros[i]}'`;
+                } else {
+                    Query = `${Query},'${parametros[i]}'`;
+                }
+            }
+        }
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery ),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+                respuesta = Success[0];
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        });
+
+        return respuesta;
+    }
+
+    function ConsultarEtapas() {
+        var Query = `select Id, NombreEtapa from [UniversoPactia].[dbo].[Etapas]`;
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        var response;
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery ),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+
+                response = Success[0];
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        }); //ajax
+
+        return response;
+    }
+
+    function ConsultarEstadoActivos() {
+        var Query = `select Id, NombreEstadoActivo from EstadoActivos `;
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        var response;
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery ),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+                response = Success[0];
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        }); //ajax
+
+        return response;
+    }
+
+    function consultarSubEstados() {
+        var Query = `select Id, NombreSubEstado from Subestados`;
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        var response;
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery ),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+                response = Success[0]
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        }); //ajax
+
+        return response;
+    }
+
+    function consultarCentroCostos() {
+        var Query = `select Id, CodigoCentroCosto from CentroCostos`;
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        var response;
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+                response = Success[0]
+                //  response = Success[0].filter(dep => dep.PaisFk =='181D1222-21E8-46AA-9404-E818D94FBC9C');
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        }); //ajax
+
+        return response;
+    }
+
+    function consultarCentroBeneficios() {
+        var Query = `select Id, CodigoCentroBeneficio from CentroBeneficios`;
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        var response;
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery ),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+                response = Success[0]
+                //  response = Success[0].filter(dep => dep.PaisFk =='181D1222-21E8-46AA-9404-E818D94FBC9C');
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        }); //ajax
+
+        return response;
+    }
+
+    function consultarActivos() {
+        var Query = `select Id, NumeroActivo from Activos`;
+        var newQuery = {
+            "query": Query,
+            "tenantId": "null",
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        var response;
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify( newQuery ),
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function (Success) {
+                debugger;
+                response = Success[0]
+                //  response = Success[0].filter(dep => dep.PaisFk =='181D1222-21E8-46AA-9404-E818D94FBC9C');
+            },
+            error: function (error) { console.log(`Error-->${error}`); }
+        }); //ajax
+
+        return response;
+    }
+
+
+    //Descargar plantilla()
+    function descargarPlantilla() {
+        debugger
+
+        var nombreDocumento = "Atributo activos"
+
+        var excelPlantilla = XLSX.utils.book_new(); // Creando Excel
+
+        excelPlantilla.Props = {    // Cambiando propiedades
+
+            Title: nombreDocumento,
+            Subject: nombreDocumento,
+            Author: "Pactia",
+        };
+
+        excelPlantilla.SheetNames.push("Atributo Activos"); //Añadiendo nueva hoja
+
+        var PlantillaHoja = [['CodigoCeBe',
+            'PeriodoVigencia',
+            'Etapa',
+            'NivelEstado',
+            'SubnivelEstado',
+            'PorcentajeParticipacionReal',
+            'PorcentajeParticipacionPlanNormalizacion',
+            'Normalizado',
+            'MismosMetros',
+            'DoceMeses',
+            'MarcaPropia',
+            'Operado',
+            'CodigoCentroCosto',
+            'CodigoCeBeRenta',
+            'CodigoActivo',
+            'Columna1',
+            'Columna2',]];
+
+        var hoja1 = XLSX.utils.aoa_to_sheet(PlantillaHoja);
+
+        excelPlantilla.Sheets["Atributo Activos"] = hoja1;
+
+        var archivo = XLSX.write(excelPlantilla, { bookType: 'xlsx', type: 'binary' });
+
+        function conversion(s) {
+
+            var buf = new ArrayBuffer(s.length);
+            var view = new Uint8Array(buf);
+            for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+            return buf;
+        }
+
+        if (confirm('¿Quiere descargar la plantilla de excel?')) {    /*nombre del archivo de excell*/
+            saveAs(new Blob([conversion(archivo)], { type: "application/octet-stream" }), `${nombreDocumento}.xlsx`);
+        }
+
+
+
+    }
+        // End Descargar plantilla()
+
+</script>
+
+
+<!--Cargar plantila-->
+
+<style>
+    input[type="file"]#uploadloadAf {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        padding-top: 20px;
+    }
+
+    label[for="uploadloadAf"] {
+        color: #fff;
+        background-color: #0072bf;
+        display: inline-block;
+        transition: all .5s;
+        cursor: pointer;
+        border: 1px solid #0072bf;
+        margin: 3px;
+        padding-top: 23px;
+        padding-right: 25px;
+        padding-bottom: 3px;
+        padding-left: 25px;
+        text-align: center;
+        border-radius: 50px 50px 50px 50px;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        box-sizing: border-box;
+        border-width: 2px;
+        padding: 5px;
+        width: 220px;
+    }
+
+    label[for="uploadloadAf"]:hover {
+        background-color: #7a7a7a;
+
+    }
+</style>
+<div>
+    <input type="file" id="uploadloadAf" class="download-products" />
+
+    <label for="uploadloadAf" class="active mdl-button mdl-button--acciones mdl-button--primary">
+        <span>Cargar AtributoActivos <i class="fa fa-upload" style="color: white;"></i></span>
+    </label>
+
+</div>
+<script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script lang="javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+<script>
+    var datosAtributoActivos
+    function anonimo() {
+        debugger;
+    }
+
+    // carga masiva
+    $('#uploadloadAf').change(function (oEvent) {
+        var Query = " "
+        debugger;
+        beginAuto = true
+        var oFile = oEvent.target.files[0];
+        var sFilename = oFile.name;
+
+        //Validar que sea excel
+        var separador = sFilename.split('.');
+        if (separador[(separador.length) - 1] != 'xlsx') {
+            toastr.warning('El archivo debe ser tipo excel', { fateAway: 5000 } );
+            $('#uploadloadAf').val(null);
+        } else {
+            toastr.success('Cargando...')
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var data = e.target.result;
+
+                /*puede manejar HTML representado como cadenas*/
+                var workbook = XLSX.read(data, {
+                    type: 'binary'
+                });
+
+
+                var sheetName = workbook.SheetNames[0]
+
+                /*funciones aceptan una hoja de trabajo y un objeto de opciones opcionales.
+ 
+                 Las *_to_sheetfunciones aceptan un objeto de datos y un objeto de opciones opcionales.   */
+                var object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+
+                var Newobject = JSON.stringify(object)
+
+                function escapeRegExp(string) {
+                    return string.replace(/[.*+?^${}()|[\]\\ó]/g, '\\$&');
+                }
+
+                // Cadena a procesar
+                var cadena = ""
+
+
+                // Simular entrada de usuario
+                var entradaUsuario = "abc";
+
+                // Aplicar la función para escapar la entrada de usuario
+                var re = new RegExp(escapeRegExp(cadena), 'g');
+
+                // Aplicar reemplazo
+
+                resultado = Newobject.replace(re, "");
+
+                // acá empiezan Las validaciones gordas
+                debugger
+                let missedFile = 0
+
+                let successRow = 0
+                let errorRow = 0
+                
+                var result = ajaxSP('Sp_MDM_CargaMasiva_AtributoActivos',[Newobject])
+
+                
+                if(result > 0){
+                    successRow++
+                }
+
+                console.log(result);
+                //Mensajes
+                if (successRow > 0) {
+                    toastr.success(`Se han guardado los registros con éxito.`, { fateAway: 5000 } )
+                }
+                if (errorRow > 0) {
+                    toastr.warning(`${errorRow} registros no se insertaron.`, { fateAway: 5000 } )
+                }
+
+            } //onload
+
+            reader.onerror = function (ex) {
+                $('#uploadloadAf').val(null);
+                console.log(ex);
+            };
+            reader.readAsBinaryString(oFile);
+        }//else
+
+        $('#uploadloadAf').val(null);
+
+    }); //change
+    function ajaxSP(nombreSp, parametros) {
+    var respuesta;
+
+    var Query = 'exec '+nombreSp
+    if (parametros != null) {
+        for (let i = 0; i < parametros.length; i++) {
+            if (i < 1) {
+                if (typeof (parametros[i]) == 'string') {
+                    Query += " '"+parametros[i]+ "'";
+                } else {
+                    Query += ' '+parametros[i];
+                }
+
+            } else {
+                if (typeof (parametros[i]) == 'string') {
+                    Query += ",'"+parametros[i]+"'";
+                } else {
+                    Query += ","+parametros[i];
+                }
+
+            }
+        }
+    }
+    
+    var newQuery = {
+        "query":Query,
+        "tenantId":"null",
+        "parameters": {
+            "aType": "execTx",
+            "environment": `${backandGlobal.environment}`
+        }
+    }
+
+    $.ajax({
+        async: false,
+        url: backandGlobal.api2+"/"+sessionStorage.workspace+".api/api/lappiz/sp/query",
+        type: 'POST',
+        data: JSON.stringify( newQuery ),
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.setRequestHeader('Authorization', localStorage.Authorization);
+        },
+        success: function (Success) {
+            respuesta = Success.length;
+        },
+        error: function (error) { console.log(error); }
+    });
+    return respuesta;
+}
+//update 28-oct-2020
+</script>

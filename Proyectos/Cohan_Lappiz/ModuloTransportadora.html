@@ -1,0 +1,436 @@
+<body>
+    <script src="https://kendo.cdn.telerik.com/2020.2.513/js/messages/kendo.messages.es-ES.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        /* Header */
+        .modalTitle {
+            font-size: 24px;
+            width: 80%;
+            padding-left: 8px;
+        }
+
+        .k-multiselect-wrap {
+            border-width: 1px !important;
+        }
+
+        .footer {
+            border-top: 1px solid #eeeeee;
+            height: 30px;
+        }
+
+        .modalCloseButton {
+            width: 100%;
+            text-align: end;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .modalBodyTitle {
+            text-align: center;
+            font-size: 24px;
+            background-color: #0072bf;
+            color: #ffffff;
+        }
+
+        .containerFooter {
+            align-items: baseline;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        .footerInput {
+            width: 45%;
+        }
+
+        i.fa.fa-times-circle {
+            padding-right: 4px;
+        }
+
+        .modal-footer {
+            text-align: end;
+        }
+
+        .modal-Container {
+            width: 100%;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            margin: auto;
+        }
+
+        #ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(1)>span {
+            width: 100%;
+        }
+
+        #ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(2)>span {
+            width: 100%;
+        }
+
+        .user-select {
+            width: 45%;
+        }
+
+        .button-container {
+            text-align: end;
+            padding-top: 10px;
+        }
+
+        label {
+            padding: 12px 0 2px 0;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .btn-reasignar {
+            width: 120px;
+            margin: 0px;
+        }
+
+        .input-container {
+            height: unset !important;
+            margin-right: 2px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .modal-Container {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (max-width: 535px) {
+            .modal-Container {
+                width: 99%;
+            }
+        }
+
+        @media only screen and (max-width: 425px) {
+            #ModalInfor {
+                width: "100%";
+                text-align: center;
+            }
+
+            .modal-Container {
+                display: inline-block;
+                padding-bottom: 0px;
+            }
+
+            label {
+                padding: 0px;
+            }
+
+            .user-select {
+                width: 100%;
+            }
+
+            .button-container {
+                text-align: end;
+                width: 100%;
+                padding-top: 15px;
+            }
+
+            .btn-reasignar {
+                padding: 3px 25px;
+                width: initial;
+            }
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #0072bf;
+            border-radius: 15px 15px 0px 0px;
+            color: white;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab div {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab div:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab div.active {
+            background-color: #7a7a7a;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            /*display: none;*/
+            padding: 20px 20px 50px 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0px 0px 15px 15px;
+            height: auto;
+        }
+
+        #Transportadoras {
+            display: none;
+        }
+
+        #cancel {
+            display: inline;
+            text-align: end;
+        }
+
+        #cancel>li {
+            list-style: none;
+        }
+
+        #cancel>li>a {
+            color: #ffffff;
+        }
+
+        .mainButtons {
+            text-align: end;
+        }
+
+        .backButton {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .asign-t-cont {
+            text-align: end;
+            padding-top: 6px;
+        }
+
+        #imprimirLE {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .mainButtons {
+                display: flex;
+                align-items: center;
+                margin-top: 6px;
+            }
+
+            .totalContent {
+                width: auto;
+            }
+
+            .totalInput {
+                width: 165px;
+                padding: 0px;
+                margin: 0 5px 0 0;
+            }
+
+            .buttonContent {
+                padding-top: 24px;
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 525px) {
+
+            #C_Cotizaciones>div.panel-body>div {
+                padding: 0px;
+            }
+
+            #SectionsFields {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #SectionsFields>div {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .tabcontent {
+                padding: 20px;
+            }
+
+            .backButton {
+                padding-top: 10px;
+            }
+
+            #cancel {
+
+                text-align: center;
+                width: 100%;
+
+            }
+
+            .mainButtons {
+                display: block;
+                text-align: center;
+                padding: 10px 0 0 0;
+                width: 100%;
+            }
+
+            .totalContent {
+                padding-bottom: 4px;
+            }
+
+            .totalInput {
+                width: 99%;
+            }
+
+            .total {
+                padding: 5px 12px;
+                text-align: end;
+            }
+
+            .childButton {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <div class="tab" id="despacho">
+        <div class="tablinks active" onclick="openTab(event, 'Pedidos')">Pedidos</div>
+        <div class="tablinks" onclick="openTab(event, 'Transportadoras')">Transportadoras</div>
+    </div>
+    <div id="Pedidos" class="tabcontent">
+        <div id="gridPedidos">
+        </div>
+        <div class="asign-t-cont">
+            <button id="asignarT">Asignar transportadora</button>
+        </div>
+    </div>
+
+    <div id="Transportadoras" class="tabcontent">
+        <div>
+            <div id="transportadoras">
+
+            </div>
+        </div>
+        <div class="mainButtons">
+
+        </div>
+    </div>
+
+    <!-- Modal informacion pedidos -->
+    <div class="modal fade" id="modalInformacion" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+            <div class="modal-content" style="padding: 0px !important">
+                <div class="modal-header">
+                    <!--<div class="modalTitle">Información módulo de transportadoras</div>-->
+                    <div class="modalCloseButton">
+                        <button id="volverinfor" onclick="volverinfo()" class="closeButton">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" id="ModalInfor">
+                    <div class="modalBodyTitle">
+                        Información módulo de transportadoras
+                    </div>
+                    <div class="modal-Container">
+                        <div id='gridInfoDespacho' class="gridInfoDespacho">
+
+                        </div>
+                        <div style="display: none;">
+                            <input type="text" name="" id="Despacho">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+    </div>
+    <!-- End modal asignar pedidos -->
+
+    <!-- Modal Asignar Transportadora -->
+    <div class="modal fade" id="modalTrans" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+            <div class="modal-content" style="padding: 0px !important">
+                <div class="modal-header">
+                    <div class="modalTitle">Asignar transportadoras</div>
+                    <div class="modalCloseButton">
+                        <button id="volverinfor" onclick="volverModalT()" class="closeButton">
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" id="ModalInfor">
+                    <div class="modalBodyTitle">
+                        Asignar transportadoras
+                    </div>
+                    <div class="modal-Container">
+                        <div>
+                            <label for="">Transportadoras</label>
+                            <input type="text" id="transport">
+                        </div>
+
+                        <br>
+                        <div>
+                            <div id='pedidosSeleccionados' class="gridInfoDespacho">
+
+                            </div>
+                        </div>
+                        <div class="asign-t-cont">
+                            <button id="asignar">Asignar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+            </div>
+        </div>
+    </div>
+    <!-- End modal asignar pedidos -->
+    <script>
+        function volverinfo() {
+            $("#modalInformacion").modal('hide')
+
+        }
+        function volverModalT() {
+            $("#modalTrans").modal('hide')
+
+        }
+        //tabs
+        function openTab(evt, tabName) {
+            debugger
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            if (tabName == 'Pedidos') {
+                //$('#gridPedidos').data('kendoGrid').refresh()
+            } else if (tabName == 'Transportadoras') {
+                //$("#transportadoras").data('kendoGrid').refresh()
+            }
+            evt.currentTarget.className += " active";
+        }
+	// end tabs
+
+    </script>
+</body>

@@ -1,0 +1,231 @@
+<body>
+    <script src="https://kendo.cdn.telerik.com/2017.2.504/js/messages/kendo.messages.es-ES.min.js"></script>
+    <style>
+        /* Main form container */
+        .form-inline {}
+
+        .main-form-container {
+            padding: 20px 0 20px 0;
+            border: 1px solid #000000;
+        }
+
+        .inputs-container {
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+        }
+
+        .action-buttons {
+            text-align: end;
+        }
+
+        .Container-btn {
+            text-align: end;
+        }
+
+        .divduo {
+            width: 45%;
+        }
+
+        .col {
+            width: 100%;
+            padding: 6px 0 6px 0;
+
+        }
+
+        span.k-widget.k-dropdown.k-header.input.input-basic {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        .input {
+            width: 98%;
+        }
+
+        /* end main-form-container*/
+        /* modal */
+        .modalTitle {
+            font-size: 24px;
+            width: 50%;
+            padding-left: 8px;
+        }
+
+        .modalCloseButton {
+            width: 50%;
+            text-align: end;
+        }
+
+        .modal-dialog {
+            width: 95% !important;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .containerInput {
+            width: 100%;
+            margin: auto;
+        }
+
+        /* end modal */
+        body {
+            font-family: Arial;
+        }
+
+        .div2 {
+            width: auto;
+            height: 40px;
+            overflow: hidden;
+            border: 0px solid #ccc;
+            border-radius: 0px 0px 0px 0px;
+            color: white;
+        }
+
+        input {
+            margin: 12px;
+            padding: 10px;
+        }
+
+
+        .totalInput {
+            width: 80px;
+            padding: 0px;
+        }
+
+        /* HEADER */
+
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .btn-cont {
+            padding-top: 8px;
+            text-align: end;
+        }
+
+        /* end-header */
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .conteinColumns {
+            display: flex;
+            padding: 10px 0 10px 0;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+        }
+
+        /* New style */
+        #AllContent>div.main-tittle.ng-scope>h1 {
+            color: #ffffff !important;
+        }
+
+        .main-tittle {
+            background-color: lightslategrey;
+            text-align: center;
+            /* color: #fff; */
+            padding: 10px 0 10px 0;
+        }
+
+
+        .divduo {
+            width: 45%;
+
+        }
+
+        .dropDown {
+            width: 100%;
+            margin-top: 7px;
+            margin-bottom: 7px;
+        }
+
+        .add-btn-container {
+            text-align: end;
+            width: 100%;
+        }
+    </style>
+    <div class="form-inline">
+        <div class="inputs-container">
+            <div class="divduo">
+                <div class="col" id="colNombMed">
+                    <label>Nit cliente<span class="requiredClass" style="color: red;">*</span></label>
+                    <input type="text" class="dropDown" id="nitcliente">
+                </div>
+            </div>
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Cliente</label>
+                    <input type="text" class="input input-basic" id="cliente" readonly>
+                </div>
+            </div>
+        </div>
+        <div style="padding: 10px 0px;text-align: center;background-color: #0072bf;">
+            <h3 style="margin: 0px;color: #ffffff;">Información cliente bionexo</h3>
+        </div>
+
+        <!-- info section -->
+        <div class="inputs-container">
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Número cotización</label>
+                    <input type="text" class="input input-basic" id="NumCot" readonly>
+                </div>
+            </div>
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Origen</label>
+                    <input type="text" class="input input-basic" id="origen" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="inputs-container">
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Nit cliente </label>
+                    <input type="text" class="input input-basic" id="idcliente" readonly>
+                </div>
+            </div>
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Nombre cliente</label>
+                    <input type="text" class="input input-basic" id="NomCleinte" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="inputs-container">
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Código producto</label>
+                    <input type="text" class="input input-basic" id="codPro" readonly>
+                </div>
+            </div>
+            <div class="divduo">
+                <div class="col">
+                    <label for="">Nombre producto</label>
+                    <input type="text" class="input input-basic" id="NomPro" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="Container-btn">
+        <button id="cargar"><i class="fa fa-archive" aria-hidden="true"></i> Cargar archivo</button>
+        <button id="guardar"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+    </div>
+    <br>
+    <div style="padding: 40px 0 0 0;">
+        <hr>
+    </div>
+</body>

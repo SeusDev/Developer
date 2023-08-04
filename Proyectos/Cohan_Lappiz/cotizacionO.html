@@ -1,0 +1,355 @@
+<style>
+
+@media only screen and (max-width: 1024px) {
+    .modal-Container {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 535px) {
+    .modal-Container {
+        width: 99%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    #ModalInfor {
+        width: "100%";
+        text-align: center;
+    }
+
+    .modal-Container {
+        display: inline-block;
+        padding-bottom: 0px;
+    }
+
+    label {
+        padding: 0px;
+    }
+
+    .user-select {
+        width: 100%;
+    }
+
+    .button-container {
+        text-align: end;
+        width: 100%;
+        padding-top: 15px;
+    }
+
+    .btn-reasignar {
+        padding: 3px 25px;
+        width: initial;
+    }
+
+}        .modal-footer {
+    text-align: end;
+}
+
+.modal-Container {
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin: auto;
+}
+
+#ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(1)>span {
+    width: 100%;
+}
+
+#ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(2)>span {
+    width: 100%;
+}
+
+.modalCloseButton {
+    width: 100%;
+    text-align: end;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo {
+    padding-bottom: 8px;
+}
+
+.modalBodyTitle {
+    text-align: center;
+    font-size: 24px;
+    background-color: #0072bf;
+    color: #ffffff;
+}
+
+.containerFooter {
+    align-items: baseline;
+    justify-content: space-around;
+    display: flex;
+}
+.modalTitle {
+    font-size: 24px;
+    width: 80%;
+    padding-left: 8px;
+}
+
+</style>
+
+
+<div class="row ng-scope">
+	<!-- quickNgRepeat: field in row.fields track by field.campoId -->
+	<!-- ngIf: field.show -->
+	<div id="SectionsFields" class="col-md-2 col-xs-12 form-group"></div>
+	<!-- end ngIf: field.show -->
+	<div id="SectionsFields" class="col-md-8 col-xs-12 form-group">
+		<!-- ngInclude: 'backand/js/directives/forms/partials/field.html' -->
+		<div class="col-xs-12 ng-scope">
+			<label class="control-label ng-scope"
+				><span class="ng-binding">Nombre cliente </span
+				><span class="ft-appengine-field-required ng-scope">*</span></label
+			>
+			<div class="ng-scope">
+				<div id="contain-dllCliente">
+					<div id="dllCliente" class="dropDown"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end ngIf: field.show -->
+	<div id="SectionsFields" class="col-md-2 col-xs-12 form-group"></div>
+	<!-- end ngIf: field.show -->
+</div>
+<div>    
+    <div id="contain-grid-clientes">
+        <div id="grid-clientes">
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalInformacion" data-keyboard="false" data-backdrop="static" role="dialog">
+    <div class="modal-dialog modal-dialog" style="overflow-x: initial;height: 90%;overflow-y: visible;">
+        <div class="modal-content" style="padding: 0px !important">
+            <div class="card-container">
+                <div role="dialog" aria-hidden="true">
+                    <div class="header-section">
+                        <div class="actions-form-header">
+                            <div style="display:inline-block" class="ng-scope">
+                                <ng-switch on="Action.Type">
+                                    <!-- ngSwitchWhen: Save -->
+                                    <!-- ngIf: showSave --><button id="guardar" class="btn-basic ng-scope"> <i
+                                            class="fa fa-plus-circle"></i>
+                                    </button>
+                                    <!-- ngIf: showSaveContinue --><button class="btn-basic ng-scope"
+                                        disabled="disabled"> <i class="fas fa-plus-square"></i> </button>
+                                    <!-- end ngIf: showSaveContinue -->
+                                    <!-- end ngSwitchWhen: -->
+                                    <!-- ngSwitchWhen: Save -->
+                                    <!-- ngIf: showSaveEdit --><button class="btn-basic ng-scope" disabled="disabled">
+                                        <i class="fa fa-clipboard"></i> </button>
+                                    <!-- end ngIf: showSaveEdit -->
+                                    <!-- end ngSwitchWhen: -->
+                                </ng-switch>
+                            </div> <!-- ngIf: showCancel -->
+                            <button class="btn-basic ng-scope" onclick="volverinfo('modalInformacion')" id="volverinfor"
+                                title="Cancelar"> <i class="fa fa-undo"></i> </button><!-- end ngIf: showCancel -->
+                            <!-- ngIf: ShowHistory && !isNew -->
+                            <nav class="inner-nav-actions ng-hide" ng-show="actionsMenuOptions || taskId">
+                                <div class="container-fluid">
+                                    <ul class="nav navbar-nav">
+                                        <li class="dropdown"> <button ng-show="showActions" data-toggle="dropdown"
+                                                translate="moreActions_form" class="ng-scope">Más Acciones</button>
+                                            <ul class="dropdown-menu contextual-menu">
+                                                <!-- quickNgRepeat: Action in configInfo.Actions -->
+                                                <li class="sub_menu ng-scope">
+                                                </li> <!-- <li> -->
+                                                <li>
+                                                    <!-- ngIf: taskId -->
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div> <br><br>
+                        <div class="title-section">
+                            <h1 class="ng-binding"> Información cotización </h1>
+                            <h5 translate="description_form" class="ng-scope">Formulario</h5>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="ng-scope">
+                            <br>
+                            <div id="1._Cliente">
+                                <div class="form-section-title ng-binding">Datos básicos</div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row ng-scope">
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"><label class="control-label ng-scope"><span
+                                                    class="ng-binding">Facturación minima</span></label>
+                                            <br>
+                                            <input id="txtfacturacionminima" class="form-control"
+                                                placeholder="Código producto">
+                                        </div>
+                                    </div>
+
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"> <label class="control-label ng-scope">
+                                                <span class="ng-binding">Plazo de entrega(dias) </span></label>
+                                            <br>
+                                            <input id="txtplazo" class="form-control" placeholder="Código producto">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row ng-scope">
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"> <label class="control-label ng-scope">
+                                                <span class="ng-binding">Validez de propuesta </span></label>
+                                            <br>
+                                            <input id="txtvalidez" class="form-control" placeholder="Código producto">
+                                        </div>
+                                    </div>
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"><label class="control-label ng-scope"><span
+                                            class="ng-binding">Forma de pago </span><span
+                                            class="ft-appengine-field-required ng-scope">*</label>
+                                    <div class="ng-scope"> <select name="field" id="selectPago"
+                                            class="ng-not-empty ng-valid-required ng-touched">
+                                            <option label="aConvenir" value="codigo">A convenir</option>
+                                            <option label="Efectivo" value="nombre">Efectivo</option>
+                                            <option label="alDia" value="codigo">Al dia</option>
+                                            <option label="0dias" value="nombre">0 días</option>
+                                            <option label="10dias" value="codigo">10 días</option>
+                                            <option label="15dias" value="nombre">15 días</option>
+                                            <option label="20dias" value="codigo">20 días</option>
+                                            <option label="30dias" value="nombre">30 días</option>
+                                            <option label="45dias" value="codigo">45 días</option>
+                                            <option label="50dias" value="nombre">50 días</option>
+                                            <option label="60dias" value="codigo">60 días</option>
+                                            <option label="90dias" value="nombre">90 días</option>
+                                            <option label="120dias" value="codigo">120 días</option>
+                                            <option label="150dias" value="nombre">150 días</option>
+                                            <option label="180dias" value="nombre">180 días</option>
+                                        </select>
+                                        <div class="input-group ng-hide"> <select id="selectPago"
+                                                class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+                                                 <option label="aConvenir" value="codigo">A convenir</option>
+                                            <option label="Efectivo" value="nombre">Efectivo</option>
+                                            <option label="alDia" value="codigo">Al dia</option>
+                                            <option label="0dias" value="nombre">0 días</option>
+                                            <option label="10dias" value="codigo">10 días</option>
+                                            <option label="15dias" value="nombre">15 días</option>
+                                            <option label="20dias" value="codigo">20 días</option>
+                                            <option label="30dias" value="nombre">30 días</option>
+                                            <option label="45dias" value="codigo">45 días</option>
+                                            <option label="50dias" value="nombre">50 días</option>
+                                            <option label="60dias" value="codigo">60 días</option>
+                                            <option label="90dias" value="nombre">90 días</option>
+                                            <option label="120dias" value="codigo">120 días</option>
+                                            <option label="150dias" value="nombre">150 días</option>
+                                            <option label="180dias" value="nombre">180 días</option>
+                                            </select> <span class="input-group-btn"> <button type="button"
+                                                    class="btn btn-default" data-toggle="modal"> <i
+                                                        class="fa custom-icon ng-isolate-scope fa-table"
+                                                        icon-type="grid"></i>
+                                                </button> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                                </div>
+                                <div class="row ng-scope">
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                        <div class="col-xs-12 ng-scope"><label class="control-label ng-scope"><span
+                                            class="ng-binding">Maneja flete</span></label>
+                                    <div class="ng-scope"> <select name="field" id="selectFlete"
+                                            class="ng-not-empty ng-valid-required ng-touched">
+                                            <option label="Si" value="codigo">SI</option>
+                                            <option label="No" value="nombre">NO</option>
+                                        </select>
+                                        <div class="input-group ng-hide"> <select id="selectFlete"
+                                                class="form-control ng-pristine ng-untouched ng-valid ng-not-empty ng-valid-required">
+                                                <option label="Si" value="codigo">SI</option>
+                                            <option label="No" value="nombre">NO</option>
+                                            </select> <span class="input-group-btn"> <button type="button"
+                                                    class="btn btn-default" data-toggle="modal"> <i
+                                                        class="fa custom-icon ng-isolate-scope fa-table"
+                                                        icon-type="grid"></i>
+                                                </button> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                    </div>
+                                    <div id="SectionsFields" class="col-md-6 col-xs-12 form-group">
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="modal fade" id="modalInformacion" data-keyboard="false" data-backdrop="static" role="dialog">
+    <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+        <div class="modal-content" style="padding: 0px !important">
+            <div class="modal-header">
+                <div class="modalCloseButton">
+                    <button id="volverinfor" onclick="volverinfo('modalInformacion')" class="closeButton">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body" id="ModalInfor">
+                <div class="modalBodyTitle">
+                    Información 
+                </div>
+                <div class="modal-Container">
+                    <div id='gridInfoDespacho' class="gridInfoDespacho">
+                    </div>
+                    <div style="display: none;">
+                        <input type="text" name="" id="Despacho">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+</div> -->
+<div class="modal fade" id="modaldetalle" data-keyboard="false" data-backdrop="static" role="dialog">
+    <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+        <div class="modal-content" style="padding: 0px !important">
+            <div class="modal-header">
+                <!--<div class="modalTitle">Informació</div>-->
+                <div class="modalCloseButton">
+                    <button id="volverinfor" onclick="volverinfo('modaldetalle')" class="closeButton">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body" id="ModalInfor">
+                <div class="modalBodyTitle">
+                    Detalle
+                </div>
+                <div class="modal-Container">
+                    <div id='gridInfoDespacho' class="gridInfoDespacho">
+                    </div>
+                    <div style="display: none;">
+                        <input type="text" name="" id="Despacho">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+        </div>
+    </div>
+</div>
+<script>
+    function volverinfo(modal) {
+        $(`#${modal}`).modal('hide');
+    }
+</script>
