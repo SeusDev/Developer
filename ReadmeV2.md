@@ -4,5 +4,4 @@ Este el repositorio de pruebas
 
 ## Lista de verificacion
 
-Se procedera a realizar validaciones seguridad. 
-
+Se procedera a realizar validaciones seguridad.
