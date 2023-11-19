@@ -564,7 +564,7 @@ body {
   height: 200px;
   width: 200px;
   margin-right: 20px;
-  margin-top: 30px;
+  margin-top: 63px;
   overflow: hidden;
 }
 
@@ -592,6 +592,7 @@ body {
 .info h4, #header h4 {
   color: #59BD85;
   margin-bottom: 2em;
+  text-align: center;
 }
 
 .info h6, #header h6 {
@@ -1295,4 +1296,13 @@ tbody {
   display: table-row-group;
   vertical-align: middle;
   display: grid;
+}
+
+.info{
+  text-align: center;
+}
+
+.Descrpcion{
+  text-align: justify;
+  margin-top: -20px;
 }
