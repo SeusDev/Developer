@@ -14,3 +14,5 @@ while comando != "salir":
 while True: 
     comando = input ("$ ")
     print(comando)
+
+#prueba
