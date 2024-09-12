@@ -1,0 +1,90 @@
+<h1>
+    Firme en este espacio.
+</h1>
+<div class="wrapper-firma-digital">
+
+    <canvas id="signaturepadFirmaProfesionalCierre" class="signature-pad" width=400 height=200
+    style="border:black; border-style:solid; border-width:thin;"></canvas>
+</div>
+<div>
+    <button id="getFirmaProfesionalCierre">Firmar</button>
+    <button id="clear">Limpiar</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/signature_pad@2.3.2/dist/signature_pad.min.js"></script>
+
+<script>
+    
+		setTimeout(function () {
+			var signaturePad = new SignaturePad(
+				document.getElementById("signaturepadFirmaProfesionalCierre"),
+				{
+					backgroundColor: "rgba(255, 255, 255, 0)",
+					penColor: "rgb(0, 0, 0)",
+				}
+			);
+			var getFirmaProfesionalCierre = document.getElementById("getFirmaProfesionalCierre");
+			var cancelButton = document.getElementById("clear");
+
+			getFirmaProfesionalCierre.addEventListener("click", function (event) {
+				if ($("#CheckIdEjecutanteCierre")[0].checked) {
+					if (signaturePad.isEmpty()) {
+						toastr.warning("Primero debe firmar en el espacio indicado");
+					} else {
+						var dataURL = signaturePad.toDataURL();
+						var parts = dataURL.split(";base64,");
+						sessionStorage.FirmaProfesionalCierre = parts[1];
+						toastr.info("Firma obtenida", "La firma ha sido cargada");
+						var fechaActual = new Date();
+						fechaActual = formatFecha(fechaActual);
+						$("#e8a631f1-0e51-4754-abe1-a7445a95698a").dxDateBox({
+							type: "datetime",
+							value: fechaActual,
+						});
+						function formatFecha(fecha) {
+							debugger;
+							fecha = fecha.toString();
+							fecha = fecha.split(" ");
+							var day = fecha[2];
+							var month = fecha[1];
+							var year = fecha[3];
+							var dateTime = fecha[4];
+							if (month == "Jan") {
+								month = "01";
+							} else if (month == "Feb") {
+								month = "02";
+							} else if (month == "Mar") {
+								month = "03";
+							} else if (month == "Apr") {
+								month = "04";
+							} else if (month == "May") {
+								month = "05";
+							} else if (month == "Jun") {
+								month = "06";
+							} else if (month == "Jul") {
+								month = "07";
+							} else if (month == "Aug") {
+								month = "08";
+							} else if (month == "Sep") {
+								month = "09";
+							} else if (month == "Oct") {
+								month = "10";
+							} else if (month == "Nov") {
+								month = "11";
+							} else if (month == "Dec") {
+								month = "12";
+							}
+							fecha = year + "-" + month + "-" + day + "T" + dateTime + ".000Z";
+							return fecha;
+						}
+					}
+				} else {
+					toastr.warning("Debes declarar que revisaste cada aspecto del permiso");
+				}
+			});
+
+			cancelButton.addEventListener("click", function (event) {
+				signaturePad.clear();
+			});
+		}, 3000);
+	</script>
+</div>

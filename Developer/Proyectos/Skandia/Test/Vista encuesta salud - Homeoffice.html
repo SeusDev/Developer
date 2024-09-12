@@ -1,0 +1,320 @@
+<style>
+    .container-main {
+        padding: 0 15px;
+        background-color: #eff2fd;
+    }
+
+    @media (max-width: 1000px) {
+        .container-card {
+            width: 100%;
+            margin: 0px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .tab-content>div>div,
+    .card-container {
+        background-color: #eff2fd;
+    }
+
+    #AllContent>div>div>div>div.card-subcontent>div.card-icon>img {
+        width: 50px;
+    }
+
+    .card-container {
+        padding: 0;
+    }
+
+    .container-card {
+        max-width: 800px;
+        margin: 17px  auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        margin: -175px 0 185px 0;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    .title-card {
+        padding: 20px 20px;
+        font-size: 20px;
+        color: #434a5e;
+        font-weight: bold;
+        font-family: verdana;
+    }
+
+    .title-container-card {
+        border-bottom: 2px solid #f3f3f3;
+        text-align: center;
+    }
+
+    .card-subcontent {
+        padding: 20px 20px;
+        display: flex;
+    }
+
+    .card-description {
+        padding: 0 22px;
+
+    }
+
+    .description {
+        margin: -8px 0 10px;
+        font-family: verdana;
+    }
+
+    .Imagen {
+        width: 100%;
+        height: 28rem;
+        background-color: #00C83C;
+    }
+
+    .btn-ingresar {
+        border: none;
+        background-color: white;
+        color: #00d146;
+        font-size: 16px;
+    }
+
+    @media only screen and (max-width: 820px) {
+        .MenuOptns {
+            margin: inherit;
+            width: 100%;
+        }
+    }
+
+
+    .card-description .row {
+        background-color: #F6F9FC;
+    }
+
+    .some-class {
+        float: left;
+        clear: none;
+    }
+
+    button.MenuOptns {
+        padding: 2px 60px !important;
+    }
+
+    .some-class label {
+        float: left;
+        clear: none;
+        display: block;
+        padding: 0px 0em 0px 8px;
+    }
+
+    input[type=radio],
+    input.radio {
+        float: left;
+        clear: none;
+        margin: 2px 0 0 2px;
+    }
+</style>
+<div class="container-main">
+    <div class="container-card">
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Home Office (Remoto)
+                </p>
+            </div>
+            <div class="card-subcontent" style="flex-flow: column; align-items: center;">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Trabajo Virtual.png" alt="Sin Imagen" style="width: 50px">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        <br>
+                        Desde tu casa o cualquier lugar del mundo.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="temp">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Cuál fue tu temperatura de acuerdo al termometro?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <input id="cc9a9dc0-544a-4994-9c41-d6daf6b153f5" placeholder="0" type="text" title="text"
+                            value="" min="0" max="100" step="1" style="width: 100%;"
+                            class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Has presentado alguno de estos síntomas en las últimas 24 horas?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Ninguno" name="Ninguno" />
+                                <label for="">Ninguno</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Fiebre" name="Fiebre" />
+                                <label for="">Fiebre</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Tos" name="Tos" />
+                                <label for="">Tos</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="DolorCabeza" name="DolorCabeza" />
+                                <label for="">Dolor de cabeza</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="DolorGarganta"
+                                    name="DolorGarganta" />
+                                <label for="">Dolor de garganta</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="MalestarGeneral"
+                                    name="MalestarGeneral" />
+                                <label for="">Malestar general</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="DificultadRespirar"
+                                    name="DificultadRespirar" />
+                                <label for="">Dificultad para respirar</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="SecrecionesNasales"
+                                    name="SecrecionesNasales" />
+                                <label for="">Secreciones nasales</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="Diarrea" name="Diarrea" />
+                                <label for="">Diarrea</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Has estado en contacto con alguien que presente los anteriores síntomas en las últimas 24 horas?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <div class="some-class">
+
+                            <input class="radio" type="radio" name="ContactoReciente" value="No" checked
+                                style="margin-left: 20px;" />
+                            <label class="form-check-label" for="ContactoReciente"> No </label>
+
+                            <input class="radio" type="radio" name="ContactoReciente" value="Si" />
+                            <label class="form-check-label" for="ContactoReciente"> Sí </label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Fuiste disgnosticado por Covid-19 el día de hoy?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <div class="some-class">
+
+                            <input class="radio" type="radio" name="Covid" value="No" style="margin-left: 20px;"
+                                checked />
+                            <label class="form-check-label" for="Covid"> No </label>
+
+                            <input class="radio" type="radio" name="Covid" value="Si" />
+                            <label class="form-check-label" for="Covid"> Sí </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Tienes alguna observación de salud que quieras notificar?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <textarea id="c2799fad-8a32-479d-81c3-ceea2992aa40" step="1" style="width: 100%;"
+                            class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="max-width: 800px;display: flex;flex-wrap: wrap;justify-content: flex-end;">
+
+        <button class="MenuOptns" type="button" id="Save">
+            <span class="Texto"> Enviar </span>
+        </button>
+        <button class="MenuOptns" type="button" id="Back" style="background-color: #707070 !important;">
+            <span class="Texto" id="Regresar"> Cancelar </span>
+        </button>
+
+    </div>
+</div>
+
+<script>
+    $('#SectionsFields').css("padding-left", "0px")
+    $('#SectionsFields').css("padding-right", "0px")
+    $('#SectionsFields > div').css("padding-left", "0px")
+    $('#SectionsFields > div').css("padding-right", "0px")
+    $('.container-main').css("padding", "0px")
+    $("#c2799fad-8a32-479d-81c3-ceea2992aa40").removeClass("k-input")
+    document.getElementById('temp').style.display ='none'
+</script>

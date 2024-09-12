@@ -1,0 +1,48 @@
+<style>
+    input[type="file"]#uploadProducts {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        padding-top: 20px;
+    }
+
+    label[for="uploadProducts"] {
+        color: #fff;
+        background-color: #0072bf;
+        display: inline-block;
+        transition: all .5s;
+        cursor: pointer;
+        border: 1px solid #0072bf;
+        margin: 3px;
+        padding-top: 23px;
+        padding-right: 25px;
+        padding-bottom: 3px;
+        padding-left: 25px;
+        text-align: center;
+        border-radius: 50px 50px 50px 50px;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        box-sizing: border-box;
+        border-width: 2px;
+        padding: 5px;
+        width: 220px;
+    }
+
+    label[for="uploadProducts"]:hover {
+        background-color: #7a7a7a;
+    }
+</style>
+<div>
+    <input type="file" id="uploadProducts" class="download-products" />
+
+    <label for="uploadProducts" class="active mdl-button mdl-button--acciones mdl-button--primary">
+        <span>Cargar usuarios <i class="fa fa-upload" style="color: white;"></i></span>
+    </label>
+
+</div>
+<script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script lang="javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>

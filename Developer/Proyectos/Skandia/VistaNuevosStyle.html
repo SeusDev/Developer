@@ -1,0 +1,435 @@
+<style>
+    .container-main {
+        padding: 0 15px;
+        background-color: #eff2fd;
+    }
+
+    @media (max-width: 1000px) {
+        .container-card {
+            width: 100%;
+            margin: 0px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    .tab-content>div>div,
+    .card-container {
+        background-color: #eff2fd;
+    }
+
+    #AllContent>div>div>div>div.card-subcontent>div.card-icon>img {
+        width: 50px;
+    }
+
+    .card-container {
+        padding: 0;
+    }
+
+    .container-card {
+        max-width: 800px;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .card {
+        margin: -226px 0 236px 0;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+    }
+
+    .title-card {
+        padding: 20px 20px;
+        font-size: 20px;
+        color: #434a5e;
+        font-weight: bold;
+        font-family: Verdana;
+    }
+
+    .title-container-card {
+        border-bottom: 2px solid #f3f3f3;
+        text-align: center;
+    }
+
+    .card-subcontent {
+        padding: 20px 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .card-description {
+        padding: 0 22px;
+        text-align: center;
+    }
+
+    .description {
+        margin: -8px 0 10px;
+        font-family: Verdana;
+    }
+
+    .Imagen {
+        
+        width: 100%;
+        max-width: 100%;
+        height: 28rem;
+        background-color: #00C83C;
+        display: block;
+        margin: 0 auto;
+   
+    } 
+
+    .btn-ingresar {
+        border: none;
+        background-color: white;
+        color: #00d146;
+        font-size: 16px;
+    }
+
+    .modal-header {
+        font-family: Verdana;
+    }
+
+    #Modal>div>div>div.modal-body>p {
+        font-family: verdana;
+    }
+    
+   
+</style>
+<div class="container-main">
+    <div class="container-card">
+        <div class="card">
+            <div class="card-subcontent" style="display: block !important; ">
+
+                <div class="card-description">
+                    <div class="description" style="    margin-top: 10px;">
+                        <iframe src="https://player.vimeo.com/video/512678733?autoplay=1&muted=1" allow="autoplay;"
+                            frameborder="" width="350" height="250" style="width: 100%;">
+                        </iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Reporte de salud diario
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/ReportedeSalud.png" alt="" class="1">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Cuéntanos cómo está tu salud hoy.
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="ReporteSalud">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Reserva de puesto
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Reservadepuesto.png" alt="" class="2">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Separa tu lugar de preferencia en nuestras instalaciones.
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="ReservaPuesto">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="display: block;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Reserva sala de reuniones
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Reservadereuniones.png" alt="" class="3">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Elige el lugar que más se acomode a tu necesidad.
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="ReservaReuniones">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="display: block;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Solicitudes de ingreso sin reserva de puesto
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Reservadereuniones.png" alt="" class="3">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Disfruta de todas nuestras instalaciones sin la necesidad de utilizar un puesto de trabajo.
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="Solicitudes">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="display: none;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Novedades de salud <i>"Pronto para ti"</i>
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Novedades de salud.png" alt="">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Si tu estado de salud cambia durante el dia, reportalo aquí
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="NovedadesSalud">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="display: none;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Beneficios <i>"Pronto para ti"</i>
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Beneficios.png" alt="">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Porque tu felicidad es la nuestra, disfruta los beneficios que tenemos para ti.
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="Beneficios">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="display: none;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Preguntas frecuentes <i>"Pronto para ti"</i>
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Question.png" alt="">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        ¿Tienes alguna duda? Consulta aquí nuestras inquietudes que frecuentemente tus compañeros
+                        tienen.
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="Question">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" id="Reportes" style="display: none;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Reportes
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Reservadepuesto.png" alt="" class="3">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="btnReportes">Ingresa</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Autorización de tratamiento de datos personales
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtime.lappiz.io/assets/img/Assests-19.png" alt="" class="3">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Consulta aquí nuestra autorización de tratamiento de datos personales
+                    </div>
+                    <div>
+                        <button class="btn-ingresar" id="Politicas">Leer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" Id='Modal' tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Autorización de tratamiento de datos personales</h2>
+
+            </div>
+            <div class="modal-body">
+                <p>El Ministerio de Salud y Protección Social, atendiendo los lineamientos de La Organización Mundial de
+                    la Salud, OMS,
+                    imparte instrucciones dirigidas a prevenir, contener y mitigar la expansión del COVID-19. Asimismo,
+                    la Resolución 666
+                    del 24 de Abril de 2020 recomienda la adopción de protocolos generales de bioseguridad y el
+                    seguimiento al estado de
+                    salud de los trabajadores en todas las actividades económicas, sociales y sectoriales.
+                    Por lo anterior y dando seguimiento a esta medida, Skandia comprometida con el bienestar de sus
+                    colaboradores, ha
+                    implementado el presente formulario que recopila datos de carácter público, privado y sensible[1]
+                    (Síntomas, factores de
+                    riesgo por COVID-19) y, en calidad de responsable manifiesta que: (i) todos los datos suministrados
+                    serán tratados
+                    conforme a lo dispuesto en la Ley 1581 de 2012 y sus decretos reglamentarios, específicamente para
+                    las siguientes
+                    finalidades: 1. Dar aplicación a los protocolos, procedimientos y lineamientos definidos por el
+                    Ministerio de Salud y
+                    Protección Social y el Ministerio de Trabajo para la preparación, respuesta y atención de caos de
+                    enfermedad por el
+                    COVID-19 2. Realizar los análisis requeridos dentro de los programas de Seguridad y Salud en el
+                    Trabajo 2. Implementar
+                    medidas de prevención y control acordes, para mitigar el riesgo de contagio”; (ii) Los datos
+                    proporcionados serán
+                    tratados bajo estrictas condiciones de seguridad para impedir su adulteración, pérdida, consulta,
+                    uso o acceso no
+                    autorizado o fraudulento; de igual forma no será compartida, ni utilizada con otros fines a los
+                    mencionados
+                    anteriormente; (iii) De conformidad con lo establecido en la Ley 1581 de 2012 de protección de datos
+                    personales, se
+                    podrá suministrar información a las entidades públicas o administrativas en el ejercicio de sus
+                    funciones legales si así
+                    lo requieren, o a las personas establecidas en el artículo 13 de la ley; (iv) Para el ejercicio de
+                    sus derechos a
+                    conocer, actualizar, rectificar y suprimir los datos, así como para revocar el consentimiento podrá
+                    consulta nuestra
+                    política de tratamiento de información, disponible en
+                    https://www.skandia.com.co/proteccion-de-datos/Paginas/default.aspx (vi) Los datos recolectados
+                    serán almacenados
+                    únicamente durante el tiempo razonable y necesario para cumplir los protocolos en el estado de
+                    emergencia, una vez se
+                    cumpla la finalidad, serán eliminados en su totalidad a menos que un mandato legal así lo determine.
+                    <br>
+                    <br>
+                    [1] Son datos sensibles aquellos que afectan la intimidad del Titular o cuyo uso indebido puede
+                    generar su
+                    discriminación, tales como aquellos que revelen el origen racial o étnico, la orientación política,
+                    las convicciones
+                    religiosas o filosóficas, la pertenencia a sindicatos, organizaciones sociales, de derechos humanos
+                    o que promueva
+                    intereses de cualquier partido político o que garanticen los derechos y garantías de partidos
+                    políticos de oposición así
+                    como los datos relativos a la salud, a la vida sexual y los datos biométricos. El suministro de
+                    datos sensibles bajo la
+                    normatividad colombiana es de carácter facultativo y no obligatorio, ninguna actividad puede ser
+                    condicionada al
+                    suministro de los mismos.
+                </p>
+            </div>
+            <div class="modal-footer">
+
+                <button class="btn-basic ng-scope" type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    title="Cerrar" id="aceptarTerminos">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#SectionsFields').css("padding-left", "0px")
+    $('#SectionsFields').css("padding-right", "0px")
+    $('#SectionsFields > div').css("padding-left", "0px")
+    $('#SectionsFields > div').css("padding-right", "0px")
+    $('.container-main').css("padding", "0px")
+    $('#aceptarTerminos').click(function () {
+        console.log('Aceptó terminos y condiciones')
+        var user = sessionStorage.userId
+        var check = ajaxQuery(`select * from Skandias_Lappiz_Users WHERE Id = '${user}'`)
+        if (check[0].AceptoTratamientoDatos != "Aceptado") {
+            /*var today = new Date();
+            var year = today.getFullYear()
+            var month = today.getMonth() + 1
+            var day = today.getDate()
+            var hour = today.getHours()
+            var ampm = "AM"
+            if(hour>12){
+                hour = hour - 12
+                ampm = "PM"
+            }
+            if(hour<10){
+                hour = "0"+hour
+            }
+            var minute = today.getMinutes()
+            var second = today.getSeconds()
+            var now = year+""+month+day+" "+hour+":"+minute+":"+second+" "+ampm*/
+            ajaxQuery(`update Skandias_Lappiz_Users SET TerminosCondiciones =1 , FechaAceptacion = CURRENT_TIMESTAMP, AceptoTratamientoDatos ='Aceptado'
+            WHERE Id = '${user}'`)
+        }
+        function ajaxQuery(Query) {
+            var respuesta;
+            let newquery = {
+                "query": Query,
+                "parameters": {
+                    "aType": "execTx",
+                    "environment": `${backandGlobal.environment}`
+                }
+            }
+            $.ajax({
+                async: false,
+                url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+                type: 'POST',
+                data: JSON.stringify(newquery),
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.setRequestHeader('Authorization', localStorage.Authorization);
+                },
+                success: function (Success) {
+                    respuesta = Success[0];
+                },
+                error: function (error) { console.log(`Error-->${error}`); }
+            });
+            return respuesta;
+        }
+    })
+</script>

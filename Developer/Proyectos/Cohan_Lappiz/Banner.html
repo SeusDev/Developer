@@ -1,0 +1,581 @@
+<body>
+    <script src="https://kendo.cdn.telerik.com/2020.2.513/js/messages/kendo.messages.es-ES.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        /* Header */
+        .modalTitle {
+            font-size: 24px;
+            width: 80%;
+            padding-left: 8px;
+        }
+
+        .k-multiselect-wrap {
+            border-width: 1px !important;
+        }
+
+        .footer {
+            border-top: 1px solid #eeeeee;
+            height: 30px;
+        }
+
+        .modalCloseButton {
+            width: 100%;
+            text-align: end;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .titulo {
+            padding-bottom: 8px;
+        }
+
+        .modalBodyTitle {
+            text-align: center;
+            font-size: 24px;
+            background-color: #0072bf;
+            color: #ffffff;
+        }
+
+        .containerFooter {
+            align-items: baseline;
+            justify-content: space-around;
+            display: flex;
+        }
+
+        .footerInput {
+            width: 45%;
+        }
+
+        i.fa.fa-times-circle {
+            padding-right: 4px;
+        }
+
+        .modal-footer {
+            text-align: end;
+        }
+
+        .modal-Container {
+            width: 100%;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            margin: auto;
+        }
+
+        #ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(1)>span {
+            width: 100%;
+        }
+
+        #ModalInfor>div.modal-Container>div.dropdown-container>div:nth-child(2)>span {
+            width: 100%;
+        }
+
+        .user-select {
+            width: 45%;
+        }
+
+        .button-container {
+            text-align: end;
+            padding-top: 10px;
+        }
+
+        label {
+            padding: 12px 0 2px 0;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .btn-reasignar {
+            width: 120px;
+            margin: 0px;
+        }
+
+        .input-container {
+            height: unset !important;
+            margin-right: 2px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media only screen and (max-width: 1024px) {
+            .modal-Container {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (max-width: 535px) {
+            .modal-Container {
+                width: 99%;
+            }
+        }
+
+        @media only screen and (max-width: 425px) {
+            #ModalInfor {
+                width: "100%";
+                text-align: center;
+            }
+
+            .modal-Container {
+                display: inline-block;
+                padding-bottom: 0px;
+            }
+
+            label {
+                padding: 0px;
+            }
+
+            .user-select {
+                width: 100%;
+            }
+
+            .button-container {
+                text-align: end;
+                width: 100%;
+                padding-top: 15px;
+            }
+
+            .btn-reasignar {
+                padding: 3px 25px;
+                width: initial;
+            }
+        }
+
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #0072bf;
+            border-radius: 15px 15px 0px 0px;
+            color: white;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab div {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab div:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab div.active {
+            background-color: #7a7a7a;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            /*display: none;*/
+            padding: 20px 20px 50px 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0px 0px 15px 15px;
+            height: auto;
+        }
+
+        #Transportadoras {
+            display: none;
+        }
+
+        #cancel {
+            display: inline;
+            text-align: end;
+        }
+
+        #cancel>li {
+            list-style: none;
+        }
+
+        #cancel>li>a {
+            color: #ffffff;
+        }
+
+        .mainButtons {
+            text-align: end;
+        }
+
+        .backButton {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .asign-t-cont {
+            text-align: end;
+            padding-top: 6px;
+        }
+
+        #imprimirLE {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .mainButtons {
+                display: flex;
+                align-items: center;
+                margin-top: 6px;
+            }
+
+            .totalContent {
+                width: auto;
+            }
+
+            .totalInput {
+                width: 165px;
+                padding: 0px;
+                margin: 0 5px 0 0;
+            }
+
+            .buttonContent {
+                padding-top: 24px;
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 525px) {
+
+            #C_Cotizaciones>div.panel-body>div {
+                padding: 0px;
+            }
+
+            #SectionsFields {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            #SectionsFields>div {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .tabcontent {
+                padding: 20px;
+            }
+
+            .backButton {
+                padding-top: 10px;
+            }
+
+            #cancel {
+
+                text-align: center;
+                width: 100%;
+
+            }
+
+            .mainButtons {
+                display: block;
+                text-align: center;
+                padding: 10px 0 0 0;
+                width: 100%;
+            }
+
+            .totalContent {
+                padding-bottom: 4px;
+            }
+
+            .totalInput {
+                width: 99%;
+            }
+
+            .total {
+                padding: 5px 12px;
+                text-align: end;
+            }
+
+            .childButton {
+                width: 100%;
+            }
+        }
+    </style>
+ <!--
+ <   <div class="tab" id="detallecotizacion">
+        <div class="tablinks active" onclick="openTab(event, 'Cotizacion')">Cotización</div>
+        <div class="tablinks active" onclick="openTab(event, 'Hospital')">Hospital</div>
+        <div class="tablinks active" onclick="openTab(event, 'ListaPrecios')">Lista Precios </div>
+        <div class="tablinks active" onclick="openTab(event, 'Fechavigencia')">Fecha Vigencia</div> 
+      
+    </div>
+    <div id="Cotizacion" class="tabcontent">
+        <div id="gridPedidos">
+            <label for=""></label>
+            <input placeholder="" type="text" class="input input-basic" id="codProClien" write>       
+        </div>
+        <div class="asign-t-cont">
+             <button id="asignarT">Asignar transportadora</button>           
+        </div>
+    </div>
+    <div id="Hospital" class="tabcontent">
+        <div id="gridPedidos">
+            <label for=""></label>
+            <input placeholder="Pendiente intregración" type="text" class="input input-basic" id="codProClien" write>  
+        </div>
+        <div class="asign-t-cont">
+                    
+        </div>
+    </div>
+    <div id="ListaPrecios" class="tabcontent">
+        <div id="gridPedidos">
+            <label for=""></label>
+          <input placeholder="Pendiente intregración" type="text" class="input input-basic" id="codProClien" write>  
+        </div>
+        <div class="asign-t-cont">
+                 
+        </div>
+    </div>
+    <div id="Fechavigencia" class="tabcontent">
+        <div id="gridPedidos">
+            <label for=""></label>
+          <input placeholder="Pendiente intregración" type="text" class="input input-basic" id="codProClien" write>   
+        </div>
+        <div class="asign-t-cont"> 
+
+            -->
+        </div>
+    </div>    
+
+    <!-- Modal clientes -->
+    <div class="modal fade" id="modalInformacion" data-keyboard="false" data-backdrop="static" role="dialog">
+        <div class="modal-dialog" style="width: 95%;overflow-x: initial;height: 90%;overflow-y: visible;">
+            <div class="modal-content" style="padding: 0px !important">
+                <div class="modal-header">
+                    <!--<div class="modalTitle">Información módulo de transportadoras</div>-->
+                    <div class="modalCloseButton">
+                        <!--<button id="volverinfor" onclick="volverinfo()" class="closeButton"> -->
+                            <i class="fa fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-body" id="ModalInfor">
+                    <div class="modalBodyTitle">
+                        Detalle Cotización
+                    </div>
+                
+                    <h1></h1>
+
+                    <form action="/action_page.php">
+                    <label for="fname">COTIZACION</label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                    <label for="lname">HOSPITAL:</label>
+                    <input type="text" id="lname" name="lname"><br><br>
+                    <label for="fname">LISTA DE PRECIO</label>
+                    <input type="text" id="fname" name="fname"><br><br>
+                    <label for="lname">FECHA VIGENCIA:</label>
+                    <input type="text" id="lname" name="lname"><br><br>
+                    </form>
+
+
+    <script>
+
+    $("#grid-detallecotizacion").kendoGrid({
+    dataSource: {
+        data: [],
+        schema: {
+            model: {
+                fields: {
+                    Cotizacion: { type: "string", editable: false },
+                    Hospital: { type: "string", editable: false },
+                    Listadeprecio: { type: "string", editable: false },
+                    FechaVigencia: { type: "string", editable: false },
+                    CodigoCliente: { type: "string", editable: false },
+                    Codigoproductocohan: { type: "string", editable: false },
+                    Codigosustituto: { type: "string", editable: false },
+                    Nombreproductocliente: { type: "string", editable: false },
+                    Nombreproducto: { type: "string", editable: false },
+                    Unidadespedidas: { type: "string", editable: false },
+                    Unidadesdisponibles: { type: "string", editable: false },
+                    Precio: { type: "string", editable: false },
+                    Operacion: { type: "string", editable: true },
+                    Comentario: { type: "string", editable: false },
+                    Estado: { type: "string", editable: false },
+                    Detalleproducto: { type: "string", editable: false },
+                    CodigoCUM: { type: "string", editable: false },
+                    CodigoATC: { type: "string", editable: false },
+                    Laboratorio: { type: "string", editable: false },
+                    Presentacion: { type: "string", editable: false },
+                    Cantidadpresentacion: { type: "string", editable: false },
+                    Registroinvima: { type: "string", editable: false },
+                    Fechavencimiento: { type: "string", editable: false },
+                }
+            }
+        },
+        pageSize: 10
+    },
+    batch: true,
+    editable: true,
+    persistSelection: true,
+    scrollable: true,
+    sortable: true,
+    filterable: true,
+    resizable: true,
+    pageable: {
+        buttonCount: 5,
+        pageSizes: true,
+        refresh: true
+    },
+    dataBound: function () {
+        //
+        for (var i = 0; i < this.columns.length; i++) {
+            this.autoFitColumn(i);
+        }
+    },
+    cellClose: function (e) {
+        debugger;
+        let modelo = e.model
+        //Evento para actualizar los campos
+
+    },
+    columns: [{
+        field: "Cotizacion",
+        title: "Cotizacion",
+        width: 250,
+        media: "(min-width: 850px)"
+    },
+    {
+        field: "Hospital",
+        title: "Hospital",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Lista de precio",
+        title: "Lista de precio",
+        width: 250,
+        media: "(min-width: 850px)"
+    },
+    {
+        field: "Fecha Vigencia",
+        title: "Fecha Vigencia",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Codigo Cliente",
+        title: "Codigo Cliente",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Codigo producto cohan",
+        title: "Codigo producto cohan",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Codigo sustituto",
+        title: "Codigo sustituto",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Nombre producto cliente",
+        title: "Nombre producto cliente",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Nombre producto",
+        title: "Nombre producto",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Unidades pedidas",
+        title: "Unidades pedidas",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Unidades disponibles",
+        title: "Unidades disponibles",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Precio",
+        title: "Precio",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Operacion",
+        title: "Operación",
+        //template: "#= kendo.toString(kendo.parseDate(FechaVencimiento, 'yyyy-MM-dd'), 'yyyy/MM/dd')#",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Comentario",
+        title: "Comentario",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Estado",
+        title: "Estado",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Detalle producto",
+        title: "Detalle producto",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Codigo CUM",
+        title: "Codigo CUM",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Codigo ATC",
+        title: "Codigo ATC",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Laboratorio",
+        title: "Laboratorio",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Presentacion",
+        title: "Presentación",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Cantidad presentacion",
+        title: "Cantidad Presentacion",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Registro invima",
+        title: "Registro invima",
+        media: "(min-width: 450px)"
+    },
+    {
+        field: "Fecha vencimiento",
+        title: "Fecha vencimiento",
+        media: "(min-width: 450px)"
+    },
+    
+    /* {
+        command: [{
+            text: "nuevoconteo",
+            click: nuevoconteo,
+            template: "<a class='k-grid-nuevoconteo btn'><i class='fa fa-plus'></i> Nuevo conteo</a>",
+            media: "(min-width: 450px)"
+        }]
+    } */]
+});
+/* setTimeout(() => {
+    $(".k-i-reload")[1].click();
+}, 500); */
+             
+
+    </script>
+</body>
+

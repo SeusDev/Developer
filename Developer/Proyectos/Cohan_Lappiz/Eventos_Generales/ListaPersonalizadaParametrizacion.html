@@ -1,0 +1,174 @@
+<style>
+	.botonContain {
+		text-align: end;
+	}
+</style>
+
+<div class="botonContain">
+	<button id="crear" onclick="crearParametrizacion()">
+		<i class="glyphicon glyphicon-plus"> Crear</i>
+	</button>
+</div>
+<br />
+<div id="gridParametrizacion"></div>
+
+<script>
+	debugger;
+
+	cargarGrid();
+
+	    function cargarGrid() {
+	    debugger;
+	    var objeto = ajaxSP('Cohan_Lappiz_ListaParametrizacionBodegas', null);
+	    objeto = JSON.stringify(objeto);
+	    objeto = JSON.parse(objeto);
+
+	    $("#gridParametrizacion").kendoGrid({
+	        dataSource: {
+	            data: objeto,
+	            schema: {
+	                model: {
+	                    fields: {
+	                        Id: { type: "string", editable: false },
+	                        CodigoCentroDeCostos: { type: "string", editable: false },
+	                        NombreCentroDeCostos: { type: "string", editable: false },
+	                        BodegaTransito: { type: "string", editable: false },
+	                        BodegaRecepcion: { type: "string", editable: false },
+	                        BodegaVentas: { type: "string", editable: false },
+	                        BodegaDevolucion: { type: "string", editable: false },
+	                        TripleA: { type: "string", editable: false },
+	                        BodegaPrincipal: { type: "string", editable: false },
+	                        BodegaSecundaria: { type: "string", editable: false },
+	                        BodegaFraccionamiento: { type: "string", editable: false },
+	                        ManejaTripleA: { type: "string", editable: false },
+	                        LedTime : { type: "string", editable: false }
+	                    }
+	                }
+	            },
+	            pageSize: 10
+	        },
+	        batch: true,
+	        editable: true,
+	        persistSelection: true,
+	        scrollable: true,
+	        sortable: true,
+	        filterable: true,
+	        resizable: true,
+	        pageable: {
+	            input: true,
+	            numeric: true,
+	            refresh: true
+	        },
+	        dataBound: function () {
+	            for (var i = 0; i < this.columns.length; i++) {
+	                this.autoFitColumn(i);
+	            }
+	        },
+	        columns: [
+	            { command: [{ text: "tomarTarea", click: tomarTarea, template: "<a class='k-grid-tomarTarea btn'><i class='fa fa-pencil-square-o'></i></a>" }] },
+	            { command: [{ text: "borrar", click: borrar, template: "<a class='k-grid-borrar btn'><i class='fa fa-trash'></i></a>" }] },
+	            { field: "CodigoCentroDeCostos", title: "Código centro de costos" },
+	            { field: "NombreCentroDeCostos", title: "Centro de costos" },
+	            { field: "BodegaTransito", title: "Bodega de tránsito" },
+	            { field: "BodegaRecepcion", title: "Bodega de recepción" },
+	            { field: "BodegaVentas", title: "Bodega de ventas" },
+	            { field: "BodegaDevolucion", title: "Bodega de devolución" },
+	            { field: "TripleA", title: "Triple A" },
+	            { field: "BodegaPrincipal", title: "Bodega principal" },
+	            { field: "BodegaSecundaria", title: "Bodega secundaria" },
+	            { field: "BodegaFraccionamiento", title: "Bodega de fraccionamiento" },
+	            { field: "TripleA", title: "Triple A" },
+	            { field: "ManejaTripleA", title: "Maneja triple A" }
+	            { field: "LedTime", title: "LedTime" }
+	        ]
+	    });
+	}
+
+	function tomarTarea(e) {
+	    debugger;
+	    var idParametrizacion = this.dataItem($(e.currentTarget).closest("tr")).Id;
+	    location.assign(`#/forms?rowId=${idParametrizacion}&viewName=Cohan_Lappiz_ParametrizacionBodegas&entityId=f7bfcebc-e613-49bc-a68a-e4814a1a9bd5`)
+	}
+
+	function borrar(e) {
+	            var idParametrizacion = this.dataItem($(e.currentTarget).closest("tr")).Id;
+	    var Query =  {
+	        "query": `delete Cohan_Lappiz_ParametrizacionBodegas where Id = '${idParametrizacion}'`,
+	        "parameters": {
+	            "aType": "execTx",
+	            "environment": backandGlobal.environment
+	        }
+	    }
+
+
+	    $.ajax({
+	        async: false,
+	        url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+	        type: 'POST',
+	        data: JSON.stringify( Query ),
+	        beforeSend: function (xhr) {
+	            xhr.setRequestHeader('Content-Type', 'application/json');
+	            xhr.setRequestHeader('Authorization', localStorage.Authorization);
+	        },
+	        success: function (Success) {
+	            console.log(Success);
+	        },
+	        error: function (error) { console.log(`Error-->${error}`); }
+	    });
+	    cargarGrid();
+	}
+
+	function crearParametrizacion() {
+	    debugger;
+	    location.assign(`#/forms?viewName=Cohan_Lappiz_ParametrizacionBodegas&entityId=f7bfcebc-e613-49bc-a68a-e4814a1a9bd5&defaultFieldsValues=null&appViewId=29061e47-51c3-4232-9b44-5dc257291f1d`)
+	}
+
+	function ajaxSP(nombreSp, parametros) {
+	    debugger;
+	    var respuesta;
+
+	    var Query = `exec ${nombreSp}`
+	    if (parametros != null) {
+	        for (let i = 0; i < parametros.length; i++) {
+	            if (i < 1) {
+	                if (typeof (parametros[i]) == 'string') {
+	                    Query = `${Query} '${parametros[i]}'`;
+	                } else {
+	                    Query = `${Query} ${parametros[i]}`;
+	                }
+
+	            } else {
+	                if (typeof (parametros[i]) == 'string') {
+	                    Query = `${Query},'${parametros[i]}'`;
+	                } else {
+	                    Query = `${Query},${parametros[i]}`;
+	                }
+	            }
+	        }
+	    }
+	    var newQuery = {
+	        "query": Query,
+	        "parameters": {
+	            "aType": "execTx",
+	            "environment": backandGlobal.environment
+	        }
+	    }
+
+	    $.ajax({
+	        async: false,
+	        url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+	        type: 'POST',
+	        data: JSON.stringify(newQuery),
+	        beforeSend: function (xhr) {
+	            xhr.setRequestHeader('Content-Type', 'application/json');
+	            xhr.setRequestHeader('Authorization', localStorage.Authorization);
+	        },
+	        success: function (Success) {
+	            respuesta = Success[0];
+	        },
+	        error: function (error) { console.log(`Error-->${error}`); }
+	    });
+
+	    return respuesta;
+	}
+</script>

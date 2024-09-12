@@ -1,0 +1,345 @@
+<style>
+    .container-main {
+        padding: 0 15px;
+        background-color: #eff2fd;
+    }
+    
+    @media (max-width: 1000px) {
+        .container-card {
+            width: 100%;
+            margin: 0px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    
+    .tab-content>div>div,
+    .card-container {
+        background-color: #eff2fd;
+    }
+    
+    #AllContent>div>div>div>div.card-subcontent>div.card-icon>img {
+        width: 50px;
+    }
+    
+    .card-container {
+        padding: 0;
+    }
+    
+    .container-card {
+        max-width: 800px;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card {
+        margin: -226px 0 236px 0;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+    }
+    
+    .title-card {
+        padding: 20px 20px;
+        font-size: 20px;
+        color: #434a5e;
+        font-weight: bold;
+        font-family: Verdana;
+    }
+    
+    .title-container-card {
+        border-bottom: 2px solid #f3f3f3;
+        text-align: center;
+    }
+    
+    .card-subcontent {
+        padding: 20px 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    
+    .card-description {
+        padding: 0 22px;
+        text-align: center;
+    }
+    
+    .description {
+        margin: -8px 0 10px;
+        font-family: Verdana;
+    }
+    
+    .Imagen {
+        width: 100%;
+        height: 28rem;
+        background-color: #00C83C;
+    }
+    
+    .btn-ingresar {
+        border: none;
+        background-color: white;
+        color: #00d146;
+        font-size: 16px;
+    }
+</style>
+<div class="container-main">
+    <div class="container-card">
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Reserva sala de reuniones
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-icon">
+                    <img src="https://runtimetest.lappiz.io/assets/img/Reservadepuesto.png" alt="Sin Imagen">
+                </div>
+                <div class="card-description">
+                    <div class="description">
+                        Reserva el espacio de tu preferencia, ten en cuenta si vas a reservar el espacio para reunirte con un cliente, tu equipo interno de trabajo o para tener una sesión de co-creación, confirma que las descripción de la sala que reserves, se ajuste a las necesidades
+                        de tu reunión.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card" style="display: none;">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿A qué sede deseas asistir?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <input id="41b41d5f-cd7d-419c-a367-10ddc6ce0bab" placeholder="0" type="text" title="text" value="" min="0" max="100" step="1" style="width: 100%;" class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Qué día será tu reunión?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <div id="66967770-3e50-4a60-bc31-3b0412237f66"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Selecciona la sala disponible
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <input id="76e7d7bf-3adf-4028-ba27-31655f5130d1" placeholder="0" type="text" title="text" value="" min="0" max="100" step="1" style="width: 100%;" class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                        <br>
+                        <br>
+                        <p align="left">Descripción</p>
+                        <textarea id="descripciónsala" step="1" readonly=readonly style="width: 100%;border: 1px solid #ccc !important" class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿En que horario será tu reunión?
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <!-- <div id="time" style="width: 100%;"></div> -->
+                        <div style="width: 100%;">
+                            <input id="start" value="7:00 AM" style="width: 100%;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    ¿Cuánto tiempo durará tu reunión?
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <input id="9a966a47-1baa-4861-98ad-9285bc6fb8f6" placeholder="0" type="text" title="text" value="" min="0" max="100" step="1" style="width: 100%;" class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Nombre de la(s) persona(s) con quien(es) te vas a reunir
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <textarea id="5b4dab98-d5f0-4513-8ec8-67a4b837273e" step="1" style="width: 100%;border: 1px solid #ccc !important" class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Observaciones
+                </p>
+            </div>
+            <div class="card-subcontent">
+                <div class="card-description" style="width: 100%;">
+                    <div class="description">
+                        <textarea id="Observacionesreserva" step="1" style="width: 100%;border: 1px solid #ccc !important" class="k-formatted-value form-control ng-pristine ng-untouched ng-valid k-input ng-scope">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row" style="max-width: 800px;margin-top: -152px;display: flex;flex-wrap: wrap;justify-content: flex-end;">
+
+        <button class="MenuOptns" type="button" id="Save">
+            <span class="Texto"> Enviar </span>
+        </button>
+
+        <button class="MenuOptns" type="button" id="Back" style="background-color: #707070 !important;">
+            <span class="Texto" id="Regresar"> Regresar </span>
+        </button>
+
+
+    </div>
+</div>
+
+<script>
+    $('#SectionsFields').css("padding-left", "0px")
+    $('#SectionsFields').css("padding-right", "0px")
+    $('#SectionsFields > div').css("padding-left", "0px")
+    $('#SectionsFields > div').css("padding-right", "0px")
+    $('.container-main').css("padding", "0px")
+
+
+
+    $("#time").dxDateBox({
+        type: "time",
+        displayFormat: "HH:mm"
+    });
+
+    var start = $("#start").kendoTimePicker({
+
+    }).data("kendoTimePicker");
+
+    start.min("7:00 AM");
+    start.max("5:30 PM");
+
+    $("#66967770-3e50-4a60-bc31-3b0412237f66").dxDateBox({
+        value: new Date(),
+        width: "100%",
+        min: new Date(),
+        displayFormat: 'dd/MM/yyyy',
+    })
+
+    $("#41b41d5f-cd7d-419c-a367-10ddc6ce0bab").kendoDropDownList({
+        autoBind: false,
+        optionLabel: "Selecione una sede...",
+        dataTextField: "Sede",
+        dataValueField: "Id",
+        dataSource: {
+            data: []
+        }
+    }).data("kendoDropDownList");
+
+    $("#9a966a47-1baa-4861-98ad-9285bc6fb8f6").kendoDropDownList({
+        autoBind: false,
+        optionLabel: "Selecione un tiempo de duración...",
+        dataTextField: "Tiempo",
+        dataValueField: "Id",
+        dataSource: {
+            data: []
+        }
+    }).data("kendoDropDownList");
+
+    $("#76e7d7bf-3adf-4028-ba27-31655f5130d1").kendoDropDownList({
+        autoBind: false,
+        optionLabel: "Selecione una sala...",
+        dataTextField: "NombreSala",
+        dataValueField: "Id",
+
+        dataSource: {
+            data: []
+        }
+    }).data("kendoDropDownList");
+
+    function ajaxQuery(query) {
+        let data
+        let newquery = {
+            "query": query,
+            "parameters": {
+                "aType": "execTx",
+                "environment": `${backandGlobal.environment}`
+            }
+        }
+        $.ajax({
+            async: false,
+            url: `${backandGlobal.api2}/${sessionStorage.workspace}.api/api/lappiz/sp/query`,
+            type: 'POST',
+            data: JSON.stringify(newquery),
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+            },
+            success: function(result) {
+                data = result[0]
+            },
+            error: function(error) {
+                console.log(error)
+            }
+        })
+
+        return data
+    }
+
+    $('#76e7d7bf-3adf-4028-ba27-31655f5130d1')[0].onchange = function(e) {
+        debugger;
+        var Query = `select TipoSala from Skandias_Lappiz_Salas where Id='${e.target.value}'`
+
+        var data = ajaxQuery(Query)
+        if (data.length > 0) {
+
+            $('#descripciónsala').text(data[0].TipoSala)
+
+        }
+
+    }
+</script>

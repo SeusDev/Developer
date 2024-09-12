@@ -1,0 +1,122 @@
+<!-- versionamiento sedes -->
+<style>
+    .container-main {
+        padding: 0 15px;
+        background-color: #eff2fd;
+    }
+    
+    @media (max-width: 1000px) {
+        .container-card {
+            width: 100%;
+            margin: 0px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    
+    .tab-content>div>div,
+    .card-container {
+        background-color: #eff2fd;
+    }
+    
+    #AllContent>div>div>div>div.card-subcontent>div.card-icon>img {
+        width: 50px;
+    }
+    
+    .card-container {
+        padding: 0;
+    }
+    
+    .container-card {
+        max-width: 800px;
+        margin: 0px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .card {
+        margin: -226px 0 236px 0;
+        width: 100%;
+        border-radius: 20px;
+        background-color: white;
+    }
+    
+    .title-card {
+        padding: 20px 20px;
+        font-size: 20px;
+        color: #434a5e;
+        font-weight: bold;
+        font-family: Verdana;
+    }
+    
+    .title-container-card {
+        border-bottom: 2px solid #f3f3f3;
+        text-align: center;
+    }
+    
+    .card-subcontent {
+        padding: 20px 20px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+    }
+    
+    .card-description {
+        padding: 0 22px;
+        text-align: center;
+    }
+    
+    .description {
+        margin: -8px 0 10px;
+        font-family: Verdana;
+    }
+    
+    .Imagen {
+        width: 100%;
+        height: 28rem;
+        background-color: #00C83C;
+    }
+    
+    .btn-ingresar {
+        border: none;
+        background-color: white;
+        color: #00d146;
+        font-size: 16px;
+    }
+</style>
+<div class="container-main">
+    <div class="container-card" id="ContainerSedes">
+        <div class="card">
+            <div class="title-container-card">
+                <p class="title-card">
+                    Selecciona una sede
+                </p>
+            </div>
+            <div class="card-subcontent">
+
+                <div class="card-description">
+                    <div class="description">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="max-width: 800px;display: flex;flex-wrap: wrap;justify-content: flex-end;margin-top: -185px;">
+        <button class="MenuOptn" type="button" id="Back" style="background-color: #00c83c !important;width: 80%;max-width: 160px;">
+            <img style="width: 6%;" src="https://runtimetest.lappiz.io/assets/img/Regresar.png" alt="Sin Imagen">
+            <span class="" id='Regresar' style="margin-left: 10px;">Regresar</span>
+        </button>
+    </div>
+</div>
+
+
+<script>
+    $('#SectionsFields').css("padding-left", "0px")
+    $('#SectionsFields').css("padding-right", "0px")
+    $('#SectionsFields > div').css("padding-left", "0px")
+    $('#SectionsFields > div').css("padding-right", "0px")
+    $('.container-main').css("padding", "0px")
+</script>

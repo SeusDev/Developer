@@ -1,0 +1,99 @@
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se instruyo al personal sobre los riesgos y medidas que deben adoptar.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX01" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aSplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se encuentra demarcada y delimitada el area para un transito seguro de  personas, vehiculos y/o montacargas.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX02" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se verifico el estado de los sistemas de proteccion instalados en la excavacion.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX03" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se verifico el estado de los taludes(grietas,desmoronamientos,etc).</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX04" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se verifico la proteccion de areas adyacentes y edificaciones cercanas.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX05" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Hay orden y aseo de los materiales utilizados en el proceso.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX06" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se verifico las condiciones de operación despues de sucesos como lluvias, tormentas sismos o cuando se presente otra condicion que incremente el riesgo(desprendimiento de tierra imprevisto, daño importante sufrido por la estibacion).</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX07" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Se verifico el estado de los mecanismos electricos, mecanicosy todo los equipos utilizados en el proceso de excavacion.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX08" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Condiciones adecuadas de orden y limpieza del area de trabajo.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX09" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Los trabajadores usan los elementos de proteccion personal completos.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX10" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>
+<div class="form-group" style="display:flex">
+    <p style="float:left;width: 75%;">Existen equipos de extincion de incedios adecuados en el area de trabajo.</p>
+    <br><br>
+    <select onchange="cambioValorPrecauciones()" id="EX11" style="float:left;width: 25%;" name="transporte">
+        <option label="Cumple" value="Cumple">Cumple</option>
+        <option label="No cumple" value="No cumple">No cumple</option>
+        <option label="No aplica" value="No aplica">No aplica</option>
+    </select>
+</div>

@@ -1,0 +1,205 @@
+<style>
+    .containButton {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-left: 20%;
+        margin-top: -2%;
+    }
+
+    .buttonDiv {
+        width: 33%
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    input[type="file"]#CargarExportacion {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        padding-top: 20px;
+    }
+
+    .cargar {
+        color: #fff;
+        background-color: #257f1e;
+        display: inline-block;
+        transition: all .5s;
+        cursor: pointer;
+        border: 1px solid #257f1e;
+        margin: 3px;
+        padding-top: 23px;
+        padding-right: 25px;
+        padding-bottom: 3px;
+        padding-left: 25px;
+        text-align: center;
+        border-radius: 50px 50px 50px 50px;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        box-sizing: border-box;
+        border-width: 2px;
+        padding: 5px;
+        width: 220px;
+    }
+
+    label[for="CargarExportacion"] {
+        color: #fff;
+        background-color: #257f1e;
+        display: inline-block;
+        transition: all .5s;
+        cursor: pointer;
+        border: 1px solid #257f1e;
+        margin: 3px;
+        padding-top: 23px;
+        padding-right: 25px;
+        padding-bottom: 3px;
+        padding-left: 25px;
+        text-align: center;
+        border-radius: 50px 50px 50px 50px;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        box-sizing: border-box;
+        border-width: 2px;
+        padding: 5px;
+        width: 220px;
+    }
+
+    label[for="CargarExportacion"]:hover {
+        background-color: #257f1e;
+    }
+
+    .labelCargar {
+        width: 100%;
+        height: 75%;
+        padding-top: 3px;
+    }
+</style>
+
+<div class="containButton">
+    <div class="buttonDiv">
+        <!--onclick="descargarPlantilla()"-->
+        <a class="button cargar" id='DescargarExport'><i class="fa fa-download"></i> Descargar
+            plantilla</a>
+    </div>
+
+    <div class="buttonDiv">
+        <input type="file" id="CargarExportacion" class="download-products" />
+
+        <label for="CargarExportacion" class="active mdl-button mdl-button--acciones mdl-button--primary labelCargar"
+            style="margin-bottom: 8px; ">
+            <span><i class="fa fa-upload" style="color: white;"></i> Ca<style>
+                .containButton {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    margin-left: 20%;
+                    margin-top: -2%;
+                }
+            
+                .buttonDiv {
+                    width: 33%
+                }
+            
+                .button {
+                    width: 100%;
+                }
+            
+                input[type="file"]#CargarExportacion {
+                    width: 0.1px;
+                    height: 0.1px;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                    padding-top: 20px;
+                }
+            
+                .cargar {
+                    color: #fff;
+                    background-color: #257f1e;
+                    display: inline-block;
+                    transition: all .5s;
+                    cursor: pointer;
+                    border: 1px solid #257f1e;
+                    margin: 3px;
+                    padding-top: 23px;
+                    padding-right: 25px;
+                    padding-bottom: 3px;
+                    padding-left: 25px;
+                    text-align: center;
+                    border-radius: 50px 50px 50px 50px;
+                    font-family: inherit;
+                    font-size: inherit;
+                    line-height: inherit;
+                    box-sizing: border-box;
+                    border-width: 2px;
+                    padding: 5px;
+                    width: 220px;
+                }
+            
+                label[for="CargarExportacion"] {
+                    color: #fff;
+                    background-color: #257f1e;
+                    display: inline-block;
+                    transition: all .5s;
+                    cursor: pointer;
+                    border: 1px solid #257f1e;
+                    margin: 3px;
+                    padding-top: 23px;
+                    padding-right: 25px;
+                    padding-bottom: 3px;
+                    padding-left: 25px;
+                    text-align: center;
+                    border-radius: 50px 50px 50px 50px;
+                    font-family: inherit;
+                    font-size: inherit;
+                    line-height: inherit;
+                    box-sizing: border-box;
+                    border-width: 2px;
+                    padding: 5px;
+                    width: 220px;
+                }
+            
+                label[for="CargarExportacion"]:hover {
+                    background-color: #257f1e;
+                }
+            
+                .labelCargar {
+                    width: 100%;
+                    height: 75%;
+                    padding-top: 3px;
+                }
+            </style>
+            
+            <div class="containButton">
+                <div class="buttonDiv">
+                    <!--onclick="descargarPlantilla()"-->
+                    <a class="button cargar" id='DescargarExport'><i class="fa fa-download"></i> Descargar
+                        plantilla</a>
+                </div>
+            
+                <div class="buttonDiv">
+                    <input type="file" id="CargarExportacion" class="download-products" />
+            
+                    <label for="CargarExportacion" class="active mdl-button mdl-button--acciones mdl-button--primary labelCargar"
+                        style="margin-bottom: 8px; ">
+                        <span><i class="fa fa-upload" style="color: white;"></i> Cargar Importaciones</span>
+                    </label>
+                </div>
+            </div>
+            
+            <script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+            <script lang="javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>taciones</span>
+        </label>
+    </div>
+</div>
+
+<script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script lang="javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>

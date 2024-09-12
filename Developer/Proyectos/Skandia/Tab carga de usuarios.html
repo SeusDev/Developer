@@ -1,0 +1,293 @@
+// tab- Vista personalizada Carga de usuarios
+
+<style>
+    input[type="file"]#uploadUsers {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        padding-top: 20px;
+    }
+
+    label[for="uploadUsers"] {
+        color: #fff;
+        background-color: #257f1e;
+        border: 1px solid #257f1e;
+        display: inline-block;
+        transition: all .5s;
+        cursor: pointer;
+        margin: 3px;
+        padding-top: 23px;
+        padding-right: 25px;
+        padding-bottom: 3px;
+        padding-left: 25px;
+        text-align: center;
+        border-radius: 50px 50px 50px 50px;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        box-sizing: border-box;
+        border-width: 2px;
+        padding: 5px;
+        width: 220px;
+    }
+
+    label[for="uploadUsers"]:hover {
+        background-color: #7a7a7a;
+    }
+</style>
+<div>
+    <input type="file" id="uploadUsers" class="download-products" />
+
+    <label for="uploadUsers" class="active mdl-button mdl-button--acciones mdl-button--primary">
+        <span>Cargar usuarios <i class="fa fa-upload" style="color: white;"></i></span>
+    </label>
+
+</div>
+<script lang="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.3/xlsx.full.min.js"></script>
+<script lang="javascript" src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+
+<script>
+    $('#uploadUsers').change(function (oEvent) {
+        debugger;
+        beginAuto = true
+        var oFile = oEvent.target.files[0];
+        var sFilename = oFile.name;
+
+        //Validar que sea excel
+        var separador = sFilename.split('.');
+        if (separador[(separador.length) - 1] != 'xlsx') {
+
+            toastr.warning('El archivo debe ser tipo excel');
+            $('#uploadUsers').val(null);
+        } else {
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+
+                var data = e.target.result;
+                //puede manejar HTML representado como cadenas
+                var workbook = XLSX.read(data, {
+                    type: 'binary'
+                });
+
+                var sheetName = workbook.SheetNames[0]
+                /*funciones aceptan una hoja de trabajo y un objeto de opciones opcionales.
+                 Las *_to_sheetfunciones aceptan un objeto de datos y un objeto de opciones opcionales.   */
+                var object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+                var Newobject = JSON.stringify(object)
+
+                function escapeRegExp(string) {
+                    return string.replace(/[.*+?^${}()|[\]\\ó]/g, '\\$&');
+                }
+                // Cadena a procesar
+                var cadena = ""
+                // Simular entrada de usuario
+                var entradaUsuario = "abc";
+                // Aplicar la función para escapar la entrada de usuario
+                var re = new RegExp(escapeRegExp(cadena), 'g');
+                // Aplicar reemplazo
+                //debugger;
+                resultado = Newobject.replace(re, "");
+                var Data = JSON.parse(resultado);
+                var Query = ` `
+                var fila = 0;
+                var filasFaltantes = 0;
+                console.log(Data)
+                debugger;
+
+                var fecha = new Date();
+                var anio = fecha.getFullYear();
+                var mes = fecha.getMonth() + 1;
+                var dia = fecha.getDate();
+                var hora = fecha.getHours();
+                var minuto = fecha.getMinutes();
+                var segundo = fecha.getSeconds();
+                var today = `${anio}-${mes}-${dia} ${hora}:${minuto}:${segundo}`
+
+                var datosNuevos = [];
+                for (let i = 0; i < Data.length; i++) {
+                    var contador = 0
+                    if (Data[i].FULLNAME == "" || Data[i].EMAIL == "" || Data[i].CONTRASEÑA == "") {
+                        contador++
+                    } else {
+                        datosNuevos.push(Data[i])
+                    }
+                }
+
+                var omitidos = Data.length - datosNuevos.length;
+                var usuariosIngresados = 0;
+
+                Data = datosNuevos;
+
+                for (let i = 0; i < Data.length; i++) {
+
+                    var correo = Data[i].Email;
+                    var info = ValidarCorreo(correo);
+                    if (info == null) {
+                        if (Data[i].IDENTIFICATION == undefined) {
+                            Data[i].IDENTIFICATION = "null"
+                        }
+
+                        if (Data[i].PHONE == undefined) {
+                            Data[i].PHONE = "null"
+                        }
+
+                        if (Data[i].ADDRESS == undefined) {
+                            Data[i].ADDRESS = "null"
+                        }
+
+                        if (Data[i].COMPAÑIA == undefined) {
+                            Data[i].COMPAÑIA = "null"
+                        }
+
+                        var body = {
+                            "Identification": Data[i].IDENTIFICATION,
+                            "FullName": Data[i].FULLNAME,
+                            "Email": Data[i].EMAIL,
+                            "Phone": Data[i].PHONE,
+                            "ADDRESS": Data[i].ADDRESS,
+                            "Contrasena": Data[i].CONTRASEÑA,
+                            "Activo": true,
+                            "Compania": Data[i].COMPAÑIA,
+                            "Created_by": sessionStorage.userId,
+                            "FechaCreacion": today,
+                            "tenantId": "null",
+                            "parameters": {
+                                            "userId": `${sessionStorage.userId}`,
+                                            "tablaId": "",
+                                            "actionId": "00000000-0000-0000-0000-000000000000",
+                                            "pType": "Guardar",
+                                            "aType": "ffija",
+                                            "environment": `${backandGlobal.environment}`,
+                                            "lappizFunctionId": "00000000-0000-0000-0000-000000000000"
+                                        }
+                        }
+
+                        debugger;
+
+                        $.ajax({
+                            async: false,
+                            url: `${backandGlobal.api2}/${sessionStorage.configAppName}.api/api/lappiz/Skandias_Lappiz_Users`,
+                            type: 'POST',
+                            data: JSON.stringify(body),
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader('Content-Type', 'application/json');
+                                xhr.setRequestHeader('Authorization', localStorage.Authorization);
+                            },
+                            success: function (result) {
+                                debugger;
+                                if (result != "") {
+                                    //Replicar en LappizV2
+                                    //Replicar en LappizV2
+                                    var Id = result.Id;
+
+                                    var body = {
+                                        "UserName": Data[i].EMAIL,
+                                        "Email": Data[i].EMAIL,
+                                        "PasswordHash": Data[i].CONTRASEÑA,
+                                        "Activo": true,
+                                        "Id": Id
+                                    }
+
+                                    $.ajax({
+                                        async: false,
+                                        url: backandGlobal.url + `/api/Users/replicate?appCode=Skandias_Lappiz&languageApp=es`,
+                                        type: 'POST',
+                                        data: JSON.stringify(body),
+                                        beforeSend: function (xhr) {
+                                            xhr.setRequestHeader('Content-Type', 'application/json');
+                                            xhr.setRequestHeader('Authorization', localStorage.Authorization);
+                                        },
+                                        success: function (result) {
+                                            debugger;
+                                            var obj = [];
+                                            obj.push({ IdRol: 'c3ca039e-9368-4a28-af2b-8f7ae2fefa4d', Action: 'Save' });
+
+                                            $.ajax({
+                                                async: false,
+                                                url: backandGlobal.url + '/api/Roles/SaveChanges?idUser=' + Id,
+                                                type: 'POST',
+                                                data: JSON.stringify(obj),
+                                                beforeSend: function (xhr) {
+                                                    xhr.setRequestHeader('Content-Type', 'application/json');
+                                                    xhr.setRequestHeader('Authorization', localStorage.Authorization);
+                                                },
+                                                success: function (data) {
+                                                    usuariosIngresados++
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                            },
+                            error: function (error) {
+                                console.log(`Error-->${JSON.stringify(error)}`);
+                            }
+                        });
+                    } else {
+                        if (info.EmpresaId == sessionStorage.empresaId) {
+                            toastr.info('Ya hay un usuario registrado con este email en esta aplicacion, por favor cambie el email de este usuario para poder crear el usuario en la aplicacion y poderle dar ingreso')
+                        } else {
+                            toastr.info('Ya hay un usuario registrado con este email en otra aplicacion, por favor contactese con el adminsitrador del sistema para validar esta informacion o cambie el email de este usuario para continuar')
+                        }
+                    }
+                }
+
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "newestOnTop": false,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "5000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "3000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                }
+
+                if (usuariosIngresados > 0) {
+                    toastr.success(`Usuario(s) ESE ${usuariosIngresados} guardado(s) correctamente`, 'Atención');
+                }
+
+                if (omitidos > 0) {
+                    toastr.info(`Se omitieron ${omitidos} usuario(s) por duplicidad en alguno de los siguientes campos: Identificacion, NombreUsuario y/o Email`, 'Atención');
+                }
+            }
+        }
+
+        reader.onerror = function (ex) {
+            $('#uploadUsers').val(null);
+            console.log(ex);
+        };
+
+        reader.readAsBinaryString(oFile);
+
+        function ValidarCorreo(Email) {
+            var x = '';
+            //VAIDAR SI CORREO EXISTE
+            $.ajax({
+                async: false,
+                url: `${backandGlobal.url}/api/Users/getStatus?email=${Email}`,
+                type: 'GET',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.setRequestHeader('Authorization', localStorage.Authorization);
+                },
+                success: function (success) {
+                    x = success;
+                },
+                error: function (error) { console.log(`Error-->${JSON.stringify(error)}`); }
+            })
+            return x;
+        }
+    })
+</script>
